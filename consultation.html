@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consultation | Palash GOLDer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #050505;
+            --dark: #0b0b0b;
+            --card: #111111;
+            --red: #e10600;
+            --red-light: #ff2a23;
+            --white: #ffffff;
+            --gray: #888888;
+            --light-gray: #d0d0d0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(225, 6, 0, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(225, 6, 0, 0.07),
+                    transparent 25%
+                ),
+                var(--black);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.012),
+                    transparent
+                );
+
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            top: -220px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: rgba(225, 6, 0, 0.08);
+            filter: blur(110px);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .container {
+            width: min(900px, 92%);
+            padding: 60px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+            animation: fadeDown 0.7s ease both;
+        }
+
+        .brand-line span {
+            width: 40px;
+            height: 2px;
+            background: var(--red);
+
+            box-shadow: 0 0 12px rgba(225, 6, 0, 0.7);
+        }
+
+        .brand-line p {
+            color: var(--red-light);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .page-title {
+            text-align: center;
+
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1;
+
+            font-weight: 900;
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+
+            animation: fadeUp 0.7s ease 0.1s both;
+        }
+
+        .page-title span {
+            color: var(--red);
+            text-shadow: 0 0 25px rgba(225, 6, 0, 0.18);
+        }
+
+        .page-subtitle {
+            text-align: center;
+
+            color: #777;
+            font-size: 0.82rem;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+
+            animation: fadeUp 0.7s ease 0.2s both;
+        }
+
+        .divider {
+            width: 65px;
+            height: 3px;
+
+            background: var(--red);
+
+            margin: 0 auto 45px;
+
+            box-shadow: 0 0 18px rgba(225, 6, 0, 0.55);
+
+            animation: expand 0.7s ease 0.25s both;
+        }
+
+        .consultation-card {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.012)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+
+            padding: 15px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.03);
+
+            overflow: hidden;
+
+            animation: fadeUp 0.7s ease 0.3s both;
+        }
+
+        .consultation-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            top: -100px;
+            left: -100px;
+
+            background: rgba(225,6,0,0.09);
+            filter: blur(60px);
+
+            pointer-events: none;
+        }
+
+        .card-heading {
+            position: relative;
+
+            padding: 25px 25px 20px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            text-align: left;
+        }
+
+        .card-heading small {
+            display: block;
+
+            color: var(--red-light);
+
+            font-size: 0.65rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .card-heading h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .card-heading p {
+            color: #777;
+
+            font-size: 0.8rem;
+            line-height: 1.6;
+
+            margin-top: 8px;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 5px 10px 10px;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 22px 15px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            transition:
+                background 0.3s ease,
+                padding 0.3s ease;
+        }
+
+        .service:last-child {
+            border-bottom: none;
+        }
+
+        .service:hover {
+            background: rgba(225,6,0,0.045);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .service-number {
+            flex-shrink: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--red);
+
+            font-size: 0.72rem;
+            font-weight: 900;
+
+            border: 1px solid rgba(225,6,0,0.3);
+            border-radius: 50%;
+
+            background: rgba(225,6,0,0.05);
+        }
+
+        .service-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .service-info h3 {
+            color: var(--white);
+
+            font-size: 0.95rem;
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .service-info p {
+            color: #666;
+
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
+        .price {
+            flex-shrink: 0;
+
+            color: var(--red-light);
+
+            font-size: 1.05rem;
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        .currency {
+            font-size: 0.7rem;
+            color: #888;
+            margin-right: 3px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            margin-top: 30px;
+
+            animation: fadeUp 0.7s ease 0.45s both;
+        }
+
+        .btn {
+            min-width: 200px;
+
+            padding: 16px 28px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            text-decoration: none;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 0.75rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            border-radius: 7px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .home-btn {
+            color: var(--white);
+
+            background: var(--red);
+
+            border: 1px solid var(--red);
+
+            box-shadow:
+                0 8px 25px rgba(225,6,0,0.2);
+        }
+
+        .home-btn:hover {
+            background: var(--red-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 30px rgba(225,6,0,0.35);
+        }
+
+        .contact-btn {
+            color: var(--light-gray);
+
+            background: transparent;
+
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .contact-btn:hover {
+            color: var(--white);
+
+            border-color: rgba(225,6,0,0.5);
+
+            background: rgba(225,6,0,0.06);
+
+            transform: translateY(-4px);
+        }
+
+        footer {
+            margin-top: 45px;
+            text-align: center;
+
+            animation: fadeUp 0.7s ease 0.55s both;
+        }
+
+        footer .line {
+            width: 100%;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.08),
+                    transparent
+                );
+
+            margin-bottom: 18px;
+        }
+
+        footer p {
+            color: #444;
+
+            font-size: 0.62rem;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer strong {
+            color: var(--red);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expand {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+
+            to {
+                width: 65px;
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+                padding: 45px 0;
+            }
+
+            .consultation-card {
+                padding: 8px;
+            }
+
+            .service {
+                gap: 12px;
+                padding: 20px 10px;
+            }
+
+            .service-info h3 {
+                font-size: 0.85rem;
+            }
+
+            .service-info p {
+                display: none;
+            }
+
+            .price {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: 91%;
+                padding: 35px 0;
+            }
+
+            .brand-line p {
+                font-size: 0.55rem;
+                letter-spacing: 2.5px;
+            }
+
+            .brand-line span {
+                width: 25px;
+            }
+
+            .page-title {
+                font-size: 2.8rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.65rem;
+                letter-spacing: 2px;
+            }
+
+            .divider {
+                margin-bottom: 30px;
+            }
+
+            .card-heading {
+                padding: 20px 15px;
+            }
+
+            .card-heading h2 {
+                font-size: 1.15rem;
+            }
+
+            .services-list {
+                padding: 3px 5px 8px;
+            }
+
+            .service {
+                padding: 18px 8px;
+            }
+
+            .service:hover {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .service-number {
+                width: 34px;
+                height: 34px;
+                font-size: 0.62rem;
+            }
+
+            .service-info h3 {
+                font-size: 0.76rem;
+                line-height: 1.35;
+            }
+
+            .price {
+                font-size: 0.82rem;
+            }
+
+            .currency {
+                font-size: 0.58rem;
+            }
+
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: 0;
+            }
+
+            footer {
+                margin-top: 30px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="brand-line">
+            <span></span>
+            <p>Palash GOLDer • Elite Fitness</p>
+            <span></span>
+        </div>
+
+        <header>
+            <h1 class="page-title">
+                <span>CONSULTATION</span>
+            </h1>
+
+            <p class="page-subtitle">
+                Personal Guidance • Professional Results
+            </p>
+
+            <div class="divider"></div>
+        </header>
+
+        <section class="consultation-card">
+
+            <div class="card-heading">
+                <small>Available Services</small>
+
+                <h2>Choose Your Fitness Service</h2>
+
+                <p>
+                    Professional guidance designed to help you improve your
+                    training, nutrition and overall fitness journey.
+                </p>
+            </div>
+
+            <ul class="services-list">
+
+                <li class="service">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <div class="service-info">
+                        <h3>Consultation + Fitness Guidance</h3>
+                        <p>
+                            Personalized fitness discussion and professional guidance.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        <span class="currency">Rs</span> 1000
+                    </div>
+
+                </li>
+
+                <li class="service">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <div class="service-info">
+                        <h3>Workout Plan</h3>
+                        <p>
+                            Structured workout guidance based on your fitness goals.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        <span class="currency">Rs</span> 1000
+                    </div>
+
+                </li>
+
+                <li class="service">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <div class="service-info">
+                        <h3>Diet Plan</h3>
+                        <p>
+                            A personalized nutrition plan to support your fitness goals.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        <span class="currency">Rs</span> 1000
+                    </div>
+
+                </li>
+
+                <li class="service">
+
+                    <div class="service-number">
+                        04
+                    </div>
+
+                    <div class="service-info">
+                        <h3>Body Injury Guidance</h3>
+                        <p>
+                            Guidance regarding training-related body concerns.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        <span class="currency">Rs</span> 2000
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+        <div class="actions">
+
+            <a href="index.html" class="btn home-btn">
+                ← BACK TO HOME
+            </a>
+
+            <a href="training.html" class="btn contact-btn">
+                VIEW TRAINING →
+            </a>
+
+        </div>
+
+        <footer>
+
+            <div class="line"></div>
+
+            <p>
+                © 2026 <strong>PALASH GOLDER</strong>
+                • TRAIN HARD • STAY CONSISTENT
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

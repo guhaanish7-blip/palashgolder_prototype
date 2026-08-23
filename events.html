@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Promotional Events | Palash GOLDer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #050505;
+            --red: #e10600;
+            --red-light: #ff2a23;
+            --white: #ffffff;
+            --gray: #777777;
+            --light-gray: #d0d0d0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+
+            background:
+                radial-gradient(circle at 50% 0%, rgba(225, 6, 0, 0.18), transparent 35%),
+                radial-gradient(circle at 90% 80%, rgba(225, 6, 0, 0.07), transparent 25%),
+                var(--black);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.012),
+                    transparent
+                );
+
+            z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 480px;
+            height: 480px;
+
+            top: -230px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: rgba(225, 6, 0, 0.08);
+            filter: blur(110px);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .container {
+            width: min(900px, 92%);
+            padding: 60px 0;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        /* BRAND */
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 22px;
+
+            animation: fadeDown 0.7s ease both;
+        }
+
+        .brand-line span {
+            width: 40px;
+            height: 2px;
+
+            background: var(--red);
+
+            box-shadow: 0 0 12px rgba(225, 6, 0, 0.7);
+        }
+
+        .brand-line p {
+            color: var(--red-light);
+
+            font-size: 0.68rem;
+            font-weight: 800;
+
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* TITLE */
+
+        .page-title {
+            text-align: center;
+
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1;
+
+            font-weight: 900;
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+
+            animation: fadeUp 0.7s ease 0.1s both;
+        }
+
+        .page-title .red {
+            color: var(--red);
+
+            text-shadow:
+                0 0 25px rgba(225, 6, 0, 0.2);
+        }
+
+        .page-subtitle {
+            text-align: center;
+
+            color: #777;
+
+            font-size: 0.78rem;
+            font-weight: 600;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+
+            animation: fadeUp 0.7s ease 0.2s both;
+        }
+
+        .divider {
+            width: 65px;
+            height: 3px;
+
+            background: var(--red);
+
+            margin: 0 auto 45px;
+
+            box-shadow: 0 0 18px rgba(225, 6, 0, 0.55);
+
+            animation: expand 0.7s ease 0.25s both;
+        }
+
+        /* MAIN CARD */
+
+        .events-card {
+            position: relative;
+
+            padding: 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.012)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.03);
+
+            overflow: hidden;
+
+            animation: fadeUp 0.7s ease 0.3s both;
+        }
+
+        .events-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            top: -100px;
+            left: -90px;
+
+            background: rgba(225,6,0,0.09);
+            filter: blur(65px);
+
+            pointer-events: none;
+        }
+
+        /* CARD HEADER */
+
+        .card-heading {
+            position: relative;
+
+            padding: 25px 25px 22px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            text-align: left;
+        }
+
+        .card-heading small {
+            display: block;
+
+            color: var(--red-light);
+
+            font-size: 0.63rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .card-heading h2 {
+            font-size: 1.45rem;
+            font-weight: 900;
+
+            margin-bottom: 7px;
+        }
+
+        .card-heading p {
+            color: #666;
+
+            font-size: 0.72rem;
+            line-height: 1.6;
+        }
+
+        /* EVENTS */
+
+        .events-list {
+            list-style: none;
+            padding: 5px 10px 10px;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+
+            gap: 17px;
+
+            padding: 22px 15px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            transition:
+                background 0.3s ease,
+                padding 0.3s ease;
+        }
+
+        .event:last-child {
+            border-bottom: none;
+        }
+
+        .event:hover {
+            background: rgba(225,6,0,0.045);
+
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .event-number {
+            flex-shrink: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--red);
+
+            font-size: 0.7rem;
+            font-weight: 900;
+
+            border: 1px solid rgba(225,6,0,0.3);
+
+            border-radius: 50%;
+
+            background: rgba(225,6,0,0.05);
+        }
+
+        .event-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .event-info h3 {
+            color: var(--white);
+
+            font-size: 0.95rem;
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .event-info p {
+            color: #666;
+
+            font-size: 0.68rem;
+            line-height: 1.5;
+        }
+
+        .price {
+            flex-shrink: 0;
+
+            color: var(--red-light);
+
+            font-size: 1rem;
+            font-weight: 900;
+
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            margin-top: 20px;
+
+            padding: 28px 25px;
+
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: var(--white);
+
+            font-size: 0.95rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-section > p {
+            color: #666;
+
+            font-size: 0.7rem;
+
+            margin-bottom: 22px;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            flex: 1 1 250px;
+
+            padding: 16px;
+
+            background: rgba(255,255,255,0.025);
+
+            border: 1px solid rgba(255,255,255,0.06);
+
+            border-radius: 8px;
+
+            transition:
+                border-color 0.3s ease,
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+
+            background: rgba(225,6,0,0.04);
+
+            border-color: rgba(225,6,0,0.35);
+        }
+
+        .contact-label {
+            display: block;
+
+            color: #555;
+
+            font-size: 0.58rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .contact-item a {
+            color: var(--red-light);
+
+            text-decoration: none;
+
+            font-size: 0.8rem;
+            font-weight: 700;
+
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        /* BUTTONS */
+
+        .actions {
+            display: flex;
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-top: 30px;
+
+            animation: fadeUp 0.7s ease 0.45s both;
+        }
+
+        .btn {
+            min-width: 205px;
+
+            padding: 16px 28px;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            font-family: 'Montserrat', sans-serif;
+
+            font-size: 0.73rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            border-radius: 7px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .home-btn {
+            color: white;
+
+            background: var(--red);
+
+            border: 1px solid var(--red);
+
+            box-shadow:
+                0 8px 25px rgba(225,6,0,0.2);
+        }
+
+        .home-btn:hover {
+            background: var(--red-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 30px rgba(225,6,0,0.35);
+        }
+
+        .consult-btn {
+            color: var(--light-gray);
+
+            background: transparent;
+
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .consult-btn:hover {
+            color: white;
+
+            background: rgba(225,6,0,0.06);
+
+            border-color: rgba(225,6,0,0.45);
+
+            transform: translateY(-4px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 42px;
+
+            text-align: center;
+
+            animation: fadeUp 0.7s ease 0.5s both;
+        }
+
+        footer .line {
+            width: 100%;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.08),
+                    transparent
+                );
+
+            margin-bottom: 18px;
+        }
+
+        footer p {
+            color: #444;
+
+            font-size: 0.62rem;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer strong {
+            color: var(--red);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expand {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+
+            to {
+                width: 65px;
+                opacity: 1;
+            }
+        }
+
+        /* TABLET */
+
+        @media (max-width: 650px) {
+
+            .container {
+                padding: 45px 0;
+            }
+
+            .event {
+                gap: 12px;
+            }
+
+            .event-info h3 {
+                font-size: 0.85rem;
+            }
+
+            .event-info p {
+                font-size: 0.62rem;
+            }
+
+            .price {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: 91%;
+                padding: 35px 0;
+            }
+
+            .brand-line p {
+                font-size: 0.53rem;
+                letter-spacing: 2.5px;
+            }
+
+            .brand-line span {
+                width: 25px;
+            }
+
+            .page-title {
+                font-size: 2.7rem;
+                letter-spacing: -1.5px;
+            }
+
+            .page-subtitle {
+                font-size: 0.62rem;
+                letter-spacing: 2px;
+            }
+
+            .divider {
+                margin-bottom: 30px;
+            }
+
+            .events-card {
+                padding: 8px;
+            }
+
+            .card-heading {
+                padding: 20px 15px;
+            }
+
+            .card-heading h2 {
+                font-size: 1.2rem;
+            }
+
+            .events-list {
+                padding: 3px 5px 8px;
+            }
+
+            .event {
+                padding: 18px 8px;
+                gap: 10px;
+            }
+
+            .event:hover {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .event-number {
+                width: 34px;
+                height: 34px;
+
+                font-size: 0.6rem;
+            }
+
+            .event-info h3 {
+                font-size: 0.76rem;
+                line-height: 1.4;
+            }
+
+            .event-info p {
+                display: none;
+            }
+
+            .price {
+                font-size: 0.8rem;
+            }
+
+            .contact-section {
+                padding: 25px 10px 18px;
+            }
+
+            .contact-section h3 {
+                font-size: 0.8rem;
+                letter-spacing: 1.5px;
+            }
+
+            .contact-details {
+                flex-direction: column;
+            }
+
+            .contact-item {
+                flex: 1;
+                width: 100%;
+            }
+
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: 0;
+            }
+
+            footer {
+                margin-top: 30px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="brand-line">
+            <span></span>
+            <p>Palash GOLDer • Elite Fitness</p>
+            <span></span>
+        </div>
+
+        <header>
+            <h1 class="page-title">
+                <span class="red">PROMOTIONAL EVENTS</span>
+            </h1>
+
+            <p class="page-subtitle">
+                Appear • Promote • Inspire
+            </p>
+
+            <div class="divider"></div>
+        </header>
+
+        <section class="events-card">
+
+            <div class="card-heading">
+                <small>01 • Event & Promotion Services</small>
+
+                <h2>Work With Palash GOLDer</h2>
+
+                <p>
+                    Professional appearances, promotional content and
+                    fitness-focused event participation.
+                </p>
+            </div>
+
+            <ul class="events-list">
+
+                <li class="event">
+                    <div class="event-number">01</div>
+
+                    <div class="event-info">
+                        <h3>Gym Opening + Body Show</h3>
+                        <p>
+                            Gym opening appearance with professional
+                            promotional presence and body show.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        Rs 10,000
+                        <small>+ Rs 10,000 Body Show</small>
+                    </div>
+                </li>
+
+                <li class="event">
+                    <div class="event-number">02</div>
+
+                    <div class="event-info">
+                        <h3>Stage Show</h3>
+                        <p>
+                            Professional stage appearance for fitness
+                            and promotional events.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        Rs 20,000
+                    </div>
+                </li>
+
+                <li class="event">
+                    <div class="event-number">03</div>
+
+                    <div class="event-info">
+                        <h3>Promotional Videos</h3>
+                        <p>
+                            Promotional video appearances for brands,
+                            gyms and fitness businesses.
+                        </p>
+                    </div>
+
+                    <div class="price">
+                        Rs 10,000
+                    </div>
+                </li>
+
+            </ul>
+
+            <div class="contact-section">
+
+                <h3>For Other Events, Contact Here</h3>
+
+                <p>
+                    For custom appearances, collaborations and other
+                    promotional opportunities.
+                </p>
+
+                <div class="contact-details">
+
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+
+                        <a href="mailto:youremail@example.com">
+                            [Insert Email Here]
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+
+                        <a href="tel:+910000000000">
+                            [Insert Phone Number Here]
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="actions">
+
+            <a href="index.html" class="btn home-btn">
+                ← BACK TO HOME
+            </a>
+
+            <a href="consultation.html" class="btn consult-btn">
+                CONSULTATION →
+            </a>
+
+        </div>
+
+        <footer>
+
+            <div class="line"></div>
+
+            <p>
+                © 2026 <strong>PALASH GOLDER</strong>
+                • TRAIN HARD • STAY CONSISTENT
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

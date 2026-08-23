@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Main Branch | Palash Galaxy Fitness</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #050505;
+            --red: #e10600;
+            --red-light: #ff2a23;
+            --white: #ffffff;
+            --gray: #777777;
+            --light-gray: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(225,6,0,0.18),
+                    transparent 35%
+                ),
+                var(--black);
+
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            top: -220px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: rgba(225,6,0,0.08);
+
+            filter: blur(110px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .container {
+            width: min(900px, 92%);
+            padding: 55px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* BRAND */
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .brand-line span {
+            width: 40px;
+            height: 2px;
+            background: var(--red);
+
+            box-shadow:
+                0 0 12px rgba(225,6,0,0.7);
+        }
+
+        .brand-line p {
+            color: var(--red-light);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: clamp(2.6rem, 7vw, 4.7rem);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }
+
+        .page-title span {
+            color: var(--red);
+
+            text-shadow:
+                0 0 30px rgba(225,6,0,0.22);
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .divider {
+            width: 65px;
+            height: 3px;
+            background: var(--red);
+            margin: 0 auto 45px;
+
+            box-shadow:
+                0 0 18px rgba(225,6,0,0.55);
+        }
+
+        /* SECTIONS */
+
+        .section {
+            position: relative;
+
+            padding: 28px;
+            margin-bottom: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.012)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 20px 55px rgba(0,0,0,0.4);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-shrink: 0;
+
+            color: var(--red);
+
+            border: 1px solid rgba(225,6,0,0.35);
+            border-radius: 50%;
+
+            font-size: 0.65rem;
+            font-weight: 900;
+        }
+
+        .section-title h2 {
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .section-title h2 span {
+            color: var(--red);
+        }
+
+        /* DESCRIPTION */
+
+        .description {
+            color: #aaa;
+            font-size: 0.83rem;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .description strong {
+            color: white;
+        }
+
+        /* PRICING */
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .price-card {
+            padding: 22px;
+
+            background: rgba(255,255,255,0.025);
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+
+            border-color: rgba(225,6,0,0.35);
+
+            background: rgba(225,6,0,0.035);
+        }
+
+        .price-card h3 {
+            color: white;
+
+            font-size: 0.85rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .price-row {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+
+            font-size: 0.75rem;
+
+            color: #aaa;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            color: var(--red-light);
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        /* AMBIENCE */
+
+        .ambience {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .ambience-card {
+            padding: 22px 15px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.025);
+
+            border: 1px solid rgba(255,255,255,0.06);
+
+            border-radius: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .ambience-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(225,6,0,0.3);
+        }
+
+        .ambience-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 12px;
+
+            color: var(--red);
+
+            border: 1px solid rgba(225,6,0,0.25);
+
+            border-radius: 50%;
+
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+
+        .ambience-card h3 {
+            font-size: 0.72rem;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .ambience-card p {
+            color: #666;
+            font-size: 0.62rem;
+            line-height: 1.5;
+        }
+
+        /* LOCATION */
+
+        .location-box {
+            padding: 20px;
+
+            background: rgba(225,6,0,0.04);
+
+            border: 1px solid rgba(225,6,0,0.15);
+
+            border-radius: 10px;
+        }
+
+        .location-label {
+            color: var(--red-light);
+
+            font-size: 0.58rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .location {
+            color: #ccc;
+
+            font-size: 0.8rem;
+
+            line-height: 1.7;
+        }
+
+        /* BUTTONS */
+
+        .actions {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            min-width: 205px;
+
+            padding: 16px 28px;
+
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            font-size: 0.72rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            border-radius: 7px;
+
+            transition: 0.3s ease;
+        }
+
+        .home-btn {
+            color: white;
+
+            background: var(--red);
+
+            border: 1px solid var(--red);
+        }
+
+        .home-btn:hover {
+            background: var(--red-light);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 30px rgba(225,6,0,0.35);
+        }
+
+        .gym-btn {
+            color: #ccc;
+
+            background: transparent;
+
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .gym-btn:hover {
+            color: white;
+
+            border-color: rgba(225,6,0,0.4);
+
+            transform: translateY(-4px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer .line {
+            width: 100%;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.08),
+                    transparent
+                );
+
+            margin-bottom: 18px;
+        }
+
+        footer p {
+            color: #444;
+
+            font-size: 0.6rem;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        footer strong {
+            color: var(--red);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: 91%;
+                padding: 40px 0;
+            }
+
+            .brand-line p {
+                font-size: 0.53rem;
+                letter-spacing: 2.5px;
+            }
+
+            .brand-line span {
+                width: 25px;
+            }
+
+            .page-title {
+                font-size: 2.55rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ambience {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 21px;
+            }
+
+            .actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="brand-line">
+            <span></span>
+            <p>Palash GOLDer • Elite Fitness</p>
+            <span></span>
+        </div>
+
+        <header>
+
+            <h1 class="page-title">
+                PALASH <span>GALAXY FITNESS</span>
+            </h1>
+
+            <p class="subtitle">
+                Main Branch • Badu, Barasat
+            </p>
+
+            <div class="divider"></div>
+
+        </header>
+
+
+        <!-- ABOUT THE GYM -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <h2>
+                    About <span>The Gym</span>
+                </h2>
+
+            </div>
+
+            <p class="description">
+
+                <strong>Palash Galaxy Fitness</strong> is a professional
+                fitness destination located in Badu, Barasat.
+
+                The gym is designed for people who are serious about
+                improving their strength, physique, fitness and overall
+                lifestyle.
+
+                <br><br>
+
+                Whether you are beginning your fitness journey or working
+                towards an advanced physique, the gym provides a dedicated
+                environment where consistency, discipline and hard work
+                come first.
+
+            </p>
+
+        </section>
+
+
+        <!-- MONTHLY CHARGES -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div class="section-number">
+                    02
+                </div>
+
+                <h2>
+                    Monthly <span>Charges</span>
+                </h2>
+
+            </div>
+
+
+            <div class="pricing-grid">
+
+                <div class="price-card">
+
+                    <h3>
+                        Gym Membership
+                    </h3>
+
+                    <div class="price-row">
+                        <span>1 Month</span>
+                        <span class="price">Rs 1,000</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>3 Months</span>
+                        <span class="price">Rs 2,500</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>6 Months</span>
+                        <span class="price">Rs 4,500</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>1 Year</span>
+                        <span class="price">Rs 8,000</span>
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <h3>
+                        Membership
+                    </h3>
+
+                    <div class="price-row">
+                        <span>Gym Access</span>
+                        <span class="price">Included</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Equipment Access</span>
+                        <span class="price">Included</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Fitness Area</span>
+                        <span class="price">Included</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Trainer Support</span>
+                        <span class="price">Available</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERSONAL TRAINING -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div class="section-number">
+                    03
+                </div>
+
+                <h2>
+                    Personal <span>Training</span>
+                </h2>
+
+            </div>
+
+
+            <div class="pricing-grid">
+
+                <div class="price-card">
+
+                    <h3>
+                        Personal Training
+                    </h3>
+
+                    <div class="price-row">
+                        <span>1 Month</span>
+                        <span class="price">Rs 5,000</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>3 Months</span>
+                        <span class="price">Rs 10,000</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>6 Months</span>
+                        <span class="price">Rs 15,000</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>1 Year</span>
+                        <span class="price">Rs 25,000</span>
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <h3>
+                        Training Includes
+                    </h3>
+
+                    <div class="price-row">
+                        <span>Workout Guidance</span>
+                        <span class="price">Yes</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Exercise Guidance</span>
+                        <span class="price">Yes</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Fitness Guidance</span>
+                        <span class="price">Yes</span>
+                    </div>
+
+                    <div class="price-row">
+                        <span>Progress Guidance</span>
+                        <span class="price">Yes</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AMBIENCE -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div class="section-number">
+                    04
+                </div>
+
+                <h2>
+                    Gym <span>Ambience</span>
+                </h2>
+
+            </div>
+
+
+            <div class="ambience">
+
+                <div class="ambience-card">
+
+                    <div class="ambience-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Professional
+                    </h3>
+
+                    <p>
+                        A focused environment built around
+                        serious training and fitness.
+                    </p>
+
+                </div>
+
+
+                <div class="ambience-card">
+
+                    <div class="ambience-icon">
+                        02
+                    </div>
+
+                    <h3>
+                        Motivating
+                    </h3>
+
+                    <p>
+                        An energetic atmosphere designed
+                        to keep you motivated.
+                    </p>
+
+                </div>
+
+
+                <div class="ambience-card">
+
+                    <div class="ambience-icon">
+                        03
+                    </div>
+
+                    <h3>
+                        Fitness Focused
+                    </h3>
+
+                    <p>
+                        A dedicated space for building
+                        strength, fitness and physique.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOCATION -->
+
+        <section class="section">
+
+            <div class="section-title">
+
+                <div class="section-number">
+                    05
+                </div>
+
+                <h2>
+                    Find <span>Us</span>
+                </h2>
+
+            </div>
+
+
+            <div class="location-box">
+
+                <div class="location-label">
+                    Main Branch Address
+                </div>
+
+                <p class="location">
+                    Gitanjali, Badu Rd, Barasat, Kolkata, Badu,
+                    West Bengal 700128
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="actions">
+
+            <a href="gym.html" class="btn gym-btn">
+                ← BACK TO GYM
+            </a>
+
+            <a href="index.html" class="btn home-btn">
+                BACK TO HOME
+            </a>
+
+        </div>
+
+
+        <footer>
+
+            <div class="line"></div>
+
+            <p>
+                © 2026 <strong>PALASH GOLDER</strong>
+                • PALASH GALAXY FITNESS
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>

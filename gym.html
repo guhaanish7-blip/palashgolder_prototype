@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palash Galaxy Fitness | Palash GOLDer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #050505;
+            --red: #e10600;
+            --red-light: #ff2a23;
+            --white: #ffffff;
+            --gray: #777777;
+            --light-gray: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+
+            background:
+                radial-gradient(circle at 50% 0%, rgba(225, 6, 0, 0.18), transparent 35%),
+                radial-gradient(circle at 90% 80%, rgba(225, 6, 0, 0.08), transparent 28%),
+                var(--black);
+
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            top: -220px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(225, 6, 0, 0.08);
+            filter: blur(110px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .container {
+            width: min(900px, 92%);
+            padding: 55px 0 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .brand-line span {
+            width: 40px;
+            height: 2px;
+            background: var(--red);
+            box-shadow: 0 0 12px rgba(225, 6, 0, 0.7);
+        }
+
+        .brand-line p {
+            color: var(--red-light);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: clamp(2.7rem, 7vw, 5rem);
+            line-height: 0.98;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+
+        .page-title span {
+            color: var(--red);
+            text-shadow: 0 0 30px rgba(225, 6, 0, 0.22);
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 27px;
+        }
+
+        .divider {
+            width: 65px;
+            height: 3px;
+            margin: 0 auto 45px;
+            background: var(--red);
+            box-shadow: 0 0 18px rgba(225, 6, 0, 0.55);
+        }
+
+        .branch-card {
+            position: relative;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.045),
+                rgba(255,255,255,0.012)
+            );
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 28px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.45),
+                inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+
+        .branch-card::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: -130px;
+            right: -100px;
+            background: rgba(225, 6, 0, 0.08);
+            filter: blur(70px);
+        }
+
+        .branch-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red-light);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .branch-label::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(225, 6, 0, 0.8);
+        }
+
+        .branch-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .branch-title span {
+            color: var(--red);
+        }
+
+        .branch-subtitle {
+            color: #777;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .detail-box {
+            padding: 18px;
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 9px;
+            transition: 0.3s ease;
+        }
+
+        .detail-box:hover {
+            transform: translateY(-3px);
+            background: rgba(225,6,0,0.035);
+            border-color: rgba(225,6,0,0.3);
+        }
+
+        .detail-box.full {
+            grid-column: 1 / -1;
+        }
+
+        .detail-label {
+            display: block;
+            color: #555;
+            font-size: 0.57rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .detail-value {
+            color: var(--light-gray);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 8px;
+            color: #55d66a;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #55d66a;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(85,214,106,0.7);
+        }
+
+        .more-info {
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .more-info p {
+            color: #666;
+            font-size: 0.7rem;
+            margin-bottom: 15px;
+        }
+
+        .info-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 190px;
+            padding: 14px 25px;
+            color: white;
+            background: var(--red);
+            border: 1px solid var(--red);
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+        }
+
+        .info-btn:hover {
+            background: var(--red-light);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(225,6,0,0.35);
+        }
+
+        .upcoming-card {
+            position: relative;
+            padding: 28px;
+            border-radius: 15px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.025),
+                rgba(255,255,255,0.008)
+            );
+            border: 1px solid rgba(255,255,255,0.07);
+            overflow: hidden;
+        }
+
+        .upcoming-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--red);
+            box-shadow: 0 0 18px rgba(225,6,0,0.5);
+        }
+
+        .upcoming-text {
+            display: inline-block;
+            padding: 8px 13px;
+            color: var(--red-light);
+            background: rgba(225,6,0,0.08);
+            border: 1px solid rgba(225,6,0,0.2);
+            border-radius: 5px;
+            font-size: 0.62rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* NAVIGATION */
+
+        .navigation {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 60px;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            min-width: 190px;
+            padding: 16px 24px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+
+            border-radius: 7px;
+
+            transition: 0.3s ease;
+        }
+
+        .training-btn {
+            color: var(--light-gray);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .training-btn:hover {
+            color: white;
+            border-color: rgba(225,6,0,0.4);
+            background: rgba(225,6,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        .home-btn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: white;
+            background: var(--red);
+            border: 1px solid var(--red);
+
+            box-shadow: 0 8px 25px rgba(225,6,0,0.2);
+        }
+
+        .home-btn:hover {
+            background: var(--red-light);
+            transform: translateX(-50%) translateY(-4px);
+            box-shadow: 0 12px 30px rgba(225,6,0,0.35);
+        }
+
+        .events-btn {
+            color: var(--red-light);
+            background: transparent;
+            border: 1px solid rgba(225,6,0,0.35);
+        }
+
+        .events-btn:hover {
+            color: white;
+            background: rgba(225,6,0,0.08);
+            border-color: var(--red);
+            transform: translateY(-4px);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        footer .line {
+            height: 1px;
+            width: 100%;
+            margin-bottom: 18px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.08),
+                transparent
+            );
+        }
+
+        footer p {
+            color: #444;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer strong {
+            color: var(--red);
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 91%;
+                padding: 40px 0;
+            }
+
+            .brand-line p {
+                font-size: 0.53rem;
+                letter-spacing: 2.5px;
+            }
+
+            .brand-line span {
+                width: 25px;
+            }
+
+            .page-title {
+                font-size: 2.65rem;
+            }
+
+            .subtitle {
+                font-size: 0.62rem;
+                letter-spacing: 2px;
+            }
+
+            .divider {
+                margin-bottom: 30px;
+            }
+
+            .branch-card,
+            .upcoming-card {
+                padding: 21px;
+            }
+
+            .branch-title {
+                font-size: 1.55rem;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-box.full {
+                grid-column: auto;
+            }
+
+            .navigation {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                min-height: 0;
+            }
+
+            .nav-btn {
+                min-width: 0;
+                width: 100%;
+                padding: 15px 10px;
+                font-size: 0.6rem;
+            }
+
+            .home-btn {
+                position: static;
+                grid-column: 1 / -1;
+                grid-row: 1;
+                transform: none;
+            }
+
+            .training-btn {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .events-btn {
+                grid-column: 2;
+                grid-row: 2;
+            }
+
+            .home-btn:hover {
+                transform: translateY(-4px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <div class="brand-line">
+        <span></span>
+        <p>Palash GOLDer • Elite Fitness</p>
+        <span></span>
+    </div>
+
+    <header>
+
+        <h1 class="page-title">
+            PALASH <span>GALAXY FITNESS</span>
+        </h1>
+
+        <p class="subtitle">
+            Train Strong • Build Better • Become Stronger
+        </p>
+
+        <div class="divider"></div>
+
+    </header>
+
+    <!-- MAIN BRANCH -->
+
+    <section class="branch-card">
+
+        <div class="branch-label">
+            Badu Branch
+        </div>
+
+        <h2 class="branch-title">
+            Main <span>Branch</span>
+        </h2>
+
+        <p class="branch-subtitle">
+            Palash Galaxy Fitness
+        </p>
+
+        <div class="details">
+
+            <div class="detail-box full">
+
+                <span class="detail-label">
+                    Address
+                </span>
+
+                <p class="detail-value">
+                    Gitanjali, Badu Rd, Barasat, Kolkata, Badu,
+                    West Bengal 700128
+                </p>
+
+            </div>
+
+            <div class="detail-box">
+
+                <span class="detail-label">
+                    Opening Hours
+                </span>
+
+                <p class="detail-value">
+                    <strong>Monday – Sunday</strong><br>
+                    6:00 AM – 10:00 PM
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    Open Daily
+                </div>
+
+            </div>
+
+            <div class="detail-box">
+
+                <span class="detail-label">
+                    Branch
+                </span>
+
+                <p class="detail-value">
+                    <strong>Main Branch</strong><br>
+                    Badu, Barasat
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="more-info">
+
+            <p>
+                For more information about the main branch
+            </p>
+
+            <a href="main.html" class="info-btn">
+                CLICK HERE →
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- SECOND BRANCH -->
+
+    <section class="upcoming-card">
+
+        <div class="branch-label">
+            Second Branch
+        </div>
+
+        <h2 class="branch-title">
+            Second <span>Branch</span>
+        </h2>
+
+        <span class="upcoming-text">
+            UPCOMING....
+        </span>
+
+    </section>
+
+    <!-- NAVIGATION -->
+
+    <div class="navigation">
+
+        <a href="training.html" class="nav-btn training-btn">
+            ← TRAINING
+        </a>
+
+        <a href="index.html" class="nav-btn home-btn">
+            HOME
+        </a>
+
+        <a href="events.html" class="nav-btn events-btn">
+            EVENTS →
+        </a>
+
+    </div>
+
+    <footer>
+
+        <div class="line"></div>
+
+        <p>
+            © 2026 <strong>PALASH GOLDER</strong>
+            • TRAIN HARD • STAY CONSISTENT
+        </p>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
