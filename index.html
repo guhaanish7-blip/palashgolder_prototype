@@ -1,605 +1,2212 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Palash GOLDer | Fitness Influencer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
 
     <style>
+
         :root {
-            --black: #050505;
-            --dark: #0b0b0b;
-            --card: #111111;
-            --card-light: #161616;
-            --red: #e10600;
-            --red-dark: #a90000;
-            --red-light: #ff2a23;
-            --white: #ffffff;
-            --gray: #999999;
-            --light-gray: #cfcfcf;
-            --border: rgba(255, 0, 0, 0.22);
+
+            --black: #020202;
+
+            --dark: #080806;
+
+            --gold-dark: #513400;
+
+            --gold-deep: #76500b;
+
+            --gold: #ad7d20;
+
+            --gold-mid: #d1a63d;
+
+            --gold-light: #efd477;
+
+            --gold-bright: #fff3b0;
+
+            --white: #f4f1e8;
+
+            --gray: #77736a;
+
+            --light-gray: #d0cbc0;
+
         }
+
 
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
+
 
         html {
+
             scroll-behavior: smooth;
+
         }
+
 
         body {
+
             min-height: 100vh;
+
             font-family: 'Montserrat', sans-serif;
+
             color: var(--white);
-            background:
-                radial-gradient(circle at 50% 0%, rgba(225, 6, 0, 0.18), transparent 35%),
-                radial-gradient(circle at 10% 80%, rgba(225, 6, 0, 0.08), transparent 25%),
-                var(--black);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
             overflow-x: hidden;
+
             position: relative;
+
+            background: #020202;
+
         }
 
-        /* Background effects */
+
+        /* =========================================
+           BACKGROUND IMAGE
+           ========================================= */
+
         body::before {
+
             content: "";
+
             position: fixed;
+
             inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.78),
+                    rgba(0, 0, 0, 0.78)
+                ),
+                url("index_overlay.jpeg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            z-index: -3;
+
+        }
+
+
+        /* =========================================
+           BLACK ATMOSPHERIC OVERLAY
+           ========================================= */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
             pointer-events: none;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% -15%,
+                    rgba(190, 145, 35, 0.13),
+                    transparent 42%
+                ),
+                radial-gradient(
+                    ellipse at 10% 80%,
+                    rgba(180, 130, 30, 0.045),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.012),
+                    transparent
+                );
+
+            z-index: -2;
+
+        }
+
+
+        /* =========================================
+           GOLD ATMOSPHERIC GLOW
+           ========================================= */
+
+        body {
+
+            background-color: #020202;
+
+        }
+
+
+        /* =========================================
+           CONTAINER
+           ========================================= */
+
+        .container {
+
+            width: min(1100px, 92%);
+
+            margin: 0 auto;
+
+            padding: 35px 0 60px;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+        /* =========================================
+           HERO
+           ========================================= */
+
+        .hero {
+
+            text-align: center;
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           THREE.JS LOGO
+           ========================================= */
+
+        #logo-container {
+
+            width: 100%;
+
+            height: 250px;
+
+            position: relative;
+
+            margin: 0 auto;
+
+            overflow: hidden;
+
+            animation:
+                logoAppear 1s ease both;
+
+        }
+
+
+        #logo-container canvas {
+
+            display: block;
+
+            width: 100% !important;
+
+            height: 100% !important;
+
+        }
+
+
+        /* =========================================
+           GOLDEN ATMOSPHERIC GLOW
+           ========================================= */
+
+        .logo-glow {
+
+            position: absolute;
+
+            width: 55%;
+
+            height: 80px;
+
+            left: 50%;
+
+            bottom: 15px;
+
+            transform: translateX(-50%);
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(220, 170, 50, 0.20),
+                    transparent 70%
+                );
+
+            filter: blur(25px);
+
+            pointer-events: none;
+
+            z-index: -1;
+
+        }
+
+
+        /* =========================================
+           SUBTITLE
+           ========================================= */
+
+        .subtitle {
+
+            color: #80796a;
+
+            font-size:
+                clamp(0.82rem, 2vw, 1.05rem);
+
+            font-weight: 700;
+
+            letter-spacing: 6px;
+
+            text-transform: uppercase;
+
+            margin-top: -5px;
+
+            margin-bottom: 38px;
+
+            animation:
+                fadeUp 0.8s ease 0.4s both;
+
+        }
+
+
+        .subtitle::before {
+
+            content: "# ";
+
+            color: var(--gold-mid);
+
+        }
+
+
+        /* =========================================
+           DIVIDER
+           ========================================= */
+
+        .divider {
+
+            width: 90px;
+
+            height: 2px;
+
+            margin: 0 auto 45px;
+
             background:
                 linear-gradient(
                     90deg,
-                    transparent 0%,
-                    rgba(255,255,255,0.015) 50%,
-                    transparent 100%
+                    var(--gold-dark),
+                    var(--gold-bright),
+                    var(--gold-dark)
                 );
-            z-index: 0;
+
+            box-shadow:
+                0 0 10px rgba(220,170,60,0.35);
+
+            animation:
+                expand 0.8s ease 0.5s both;
+
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: rgba(225, 6, 0, 0.07);
-            filter: blur(120px);
-            border-radius: 50%;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            pointer-events: none;
-        }
 
-        .container {
-            width: min(1100px, 92%);
-            margin: 0 auto;
-            padding: 70px 0;
-            position: relative;
-            z-index: 1;
-        }
+        /* =========================================
+           BIOGRAPHY
+           ========================================= */
 
-        /* Top brand line */
-        .brand-line {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 22px;
-            animation: fadeDown 0.8s ease forwards;
-        }
-
-        .brand-line span {
-            width: 45px;
-            height: 2px;
-            background: var(--red);
-            box-shadow: 0 0 12px rgba(225, 6, 0, 0.7);
-        }
-
-        .brand-line p {
-            color: var(--red-light);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        /* Main title */
-        .hero {
-            text-align: center;
-        }
-
-        .main-title {
-            font-size: clamp(3.5rem, 9vw, 7rem);
-            line-height: 0.95;
-            font-weight: 900;
-            letter-spacing: -3px;
-            margin-bottom: 18px;
-            text-transform: none;
-            animation: fadeUp 0.8s ease 0.1s both;
-        }
-
-        .main-title .white {
-            color: var(--white);
-        }
-
-        .main-title .red {
-            color: var(--red);
-            text-shadow:
-                0 0 15px rgba(225, 6, 0, 0.25),
-                0 0 40px rgba(225, 6, 0, 0.12);
-        }
-
-        .subtitle {
-            color: #777;
-            font-size: clamp(0.9rem, 2vw, 1.15rem);
-            font-weight: 600;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 45px;
-            animation: fadeUp 0.8s ease 0.2s both;
-        }
-
-        .subtitle::before {
-            content: "# ";
-            color: var(--red);
-        }
-
-        /* Hero divider */
-        .divider {
-            width: 70px;
-            height: 3px;
-            background: var(--red);
-            margin: 0 auto 45px;
-            box-shadow: 0 0 18px rgba(225, 6, 0, 0.55);
-            animation: expand 0.8s ease 0.3s both;
-        }
-
-        /* Biography */
         .biography-box {
+
             position: relative;
+
             max-width: 850px;
+
             margin: 0 auto 55px;
+
             padding: 38px 42px;
-            background:
-                linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
-            border: 1px solid rgba(255,255,255,0.08);
-            border-left: 4px solid var(--red);
-            border-radius: 12px;
-            box-shadow:
-                0 20px 60px rgba(0,0,0,0.45),
-                inset 0 1px 0 rgba(255,255,255,0.03);
-            text-align: left;
-            animation: fadeUp 0.8s ease 0.35s both;
-            overflow: hidden;
-        }
 
-        .biography-box::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 180px;
-            height: 180px;
-            background: rgba(225,6,0,0.08);
-            filter: blur(70px);
-            pointer-events: none;
-        }
-
-        .bio-label {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--red-light);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 17px;
-        }
-
-        .bio-label::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            background: var(--red);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--red);
-        }
-
-        .biography-box p {
-            position: relative;
-            color: var(--light-gray);
-            font-size: 1rem;
-            line-height: 1.9;
-            font-weight: 400;
-        }
-
-        /* Navigation section */
-        .navigation-title {
-            text-align: center;
-            color: #666;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-            animation: fadeUp 0.8s ease 0.4s both;
-        }
-
-        .action-buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            animation: fadeUp 0.8s ease 0.5s both;
-        }
-
-        .btn {
-            position: relative;
-            min-height: 125px;
-            padding: 25px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 13px;
-
-            text-decoration: none;
-            color: var(--white);
-
-            background:
-                linear-gradient(145deg, #171717, #0d0d0d);
-
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 10px;
-
-            overflow: hidden;
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease,
-                box-shadow 0.35s ease,
-                background 0.35s ease;
-        }
-
-        .btn::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--red);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.35s ease;
-        }
-
-        .btn::after {
-            content: "";
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: rgba(225, 6, 0, 0.09);
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-8px);
-            border-color: rgba(225, 6, 0, 0.55);
-            background: linear-gradient(145deg, #1b1111, #0d0d0d);
-            box-shadow:
-                0 18px 35px rgba(0,0,0,0.5),
-                0 0 25px rgba(225,6,0,0.12);
-        }
-
-        .btn:hover::before {
-            transform: scaleX(1);
-        }
-
-        .btn:hover::after {
-            opacity: 1;
-        }
-
-        .btn-number {
-            position: absolute;
-            top: 12px;
-            left: 14px;
-            color: #444;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .btn-icon {
-            position: relative;
-            z-index: 1;
-            width: 34px;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--red);
-            font-size: 1.3rem;
-
-            border: 1px solid rgba(225,6,0,0.35);
-            border-radius: 50%;
-            background: rgba(225,6,0,0.06);
-        }
-
-        .btn-text {
-            position: relative;
-            z-index: 1;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-align: center;
-        }
-
-        /* Featured consultation button */
-        .btn.featured {
-            border-color: rgba(225,6,0,0.45);
             background:
                 linear-gradient(
                     145deg,
-                    rgba(225,6,0,0.16),
-                    #111
+                    rgba(10,10,8,0.78),
+                    rgba(190,145,40,0.025),
+                    rgba(0,0,0,0.70)
                 );
+
+            border:
+                1px solid rgba(210,165,60,0.14);
+
+            border-left:
+                4px solid var(--gold);
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.65),
+                inset 0 1px 0 rgba(255,255,255,0.025);
+
+            text-align: left;
+
+            overflow: hidden;
+
+            backdrop-filter: blur(5px);
+
+            animation:
+                fadeUp 0.8s ease 0.6s both;
+
         }
+
+
+        .biography-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -80px;
+
+            left: -80px;
+
+            width: 250px;
+
+            height: 250px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(210,165,55,0.075),
+                    transparent 70%
+                );
+
+            filter: blur(30px);
+
+            pointer-events: none;
+
+        }
+
+
+        .bio-label {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--gold-light);
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .bio-label::before {
+
+            content: "";
+
+            width: 7px;
+
+            height: 7px;
+
+            background: var(--gold-mid);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px rgba(220,170,60,0.7);
+
+        }
+
+
+        .biography-box p {
+
+            position: relative;
+
+            color: var(--light-gray);
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            font-weight: 400;
+
+        }
+
+
+        /* =========================================
+           NAVIGATION TITLE
+           ========================================= */
+
+        .navigation-title {
+
+            text-align: center;
+
+            color: #625e54;
+
+            font-size: 0.68rem;
+
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+
+            animation:
+                fadeUp 0.8s ease 0.7s both;
+
+        }
+
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+
+        .action-buttons {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            animation:
+                fadeUp 0.8s ease 0.8s both;
+
+        }
+
+
+        .btn {
+
+            position: relative;
+
+            min-height: 125px;
+
+            padding: 25px 18px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 13px;
+
+            text-decoration: none;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(23,21,17,0.90),
+                    rgba(10,10,8,0.90)
+                );
+
+            border:
+                1px solid rgba(210,165,60,0.13);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            backdrop-filter: blur(5px);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+
+        }
+
+
+        /* Bottom gold line */
+
+        .btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold-dark),
+                    var(--gold-bright),
+                    var(--gold-dark)
+                );
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition:
+                transform 0.35s ease;
+
+        }
+
+
+        /* Gold hover glow */
+
+        .btn::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 140px;
+
+            height: 140px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(210,165,60,0.10),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            filter: blur(25px);
+
+            opacity: 0;
+
+            transition:
+                opacity 0.35s ease;
+
+        }
+
+
+        .btn:hover {
+
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(220,175,70,0.42);
+
+            box-shadow:
+                0 18px 35px rgba(0,0,0,0.65),
+                0 0 25px rgba(210,165,60,0.08);
+
+        }
+
+
+        .btn:hover::before {
+
+            transform: scaleX(1);
+
+        }
+
+
+        .btn:hover::after {
+
+            opacity: 1;
+
+        }
+
+
+        /* =========================================
+           ICON
+           ========================================= */
+
+        .btn-icon {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--gold-light);
+
+            border:
+                1px solid rgba(210,165,60,0.32);
+
+            border-radius: 50%;
+
+            background:
+                rgba(210,165,60,0.035);
+
+            transition:
+                transform 0.35s ease,
+                background 0.35s ease,
+                box-shadow 0.35s ease;
+
+        }
+
+
+        .btn-icon svg {
+
+            width: 21px;
+
+            height: 21px;
+
+            stroke: currentColor;
+
+            fill: none;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+
+        }
+
+
+        .btn:hover .btn-icon {
+
+            transform: scale(1.08);
+
+            background:
+                rgba(210,165,60,0.09);
+
+            box-shadow:
+                0 0 18px rgba(210,165,60,0.13);
+
+        }
+
+
+        /* =========================================
+           BUTTON TEXT
+           ========================================= */
+
+        .btn-text {
+
+            position: relative;
+
+            z-index: 1;
+
+            font-size: 0.8rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-align: center;
+
+        }
+
+
+        /* =========================================
+           FEATURED BUTTON
+           ========================================= */
+
+        .btn.featured {
+
+            border-color:
+                rgba(210,165,60,0.40);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(190,145,45,0.15),
+                    rgba(17,16,13,0.94)
+                );
+
+        }
+
 
         .btn.featured .btn-text {
-            color: #fff;
+
+            color: #eee0b4;
+
         }
 
-        /* Footer */
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+
         footer {
+
             margin-top: 55px;
+
             text-align: center;
-            animation: fadeUp 0.8s ease 0.6s both;
+
+            animation:
+                fadeUp 0.8s ease 0.9s both;
+
         }
+
 
         footer .line {
+
             width: 100%;
+
             height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.08),
-                transparent
-            );
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(210,165,60,0.17),
+                    transparent
+                );
+
             margin-bottom: 20px;
+
         }
+
 
         footer p {
-            color: #444;
+
+            color: #3e3a32;
+
             font-size: 0.65rem;
+
             font-weight: 600;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
+
         }
+
 
         footer strong {
-            color: var(--red);
+
+            color: var(--gold-mid);
+
         }
 
-        /* Animations */
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+
+        @keyframes logoAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.96);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
         @keyframes fadeUp {
+
             from {
+
                 opacity: 0;
-                transform: translateY(25px);
+
+                transform:
+                    translateY(25px);
+
             }
+
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
+
             }
+
         }
 
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
         @keyframes expand {
+
             from {
+
                 width: 0;
+
                 opacity: 0;
+
             }
+
             to {
-                width: 70px;
+
+                width: 90px;
+
                 opacity: 1;
+
             }
+
         }
 
-        /* Tablet */
+
+        /* =========================================
+           TABLET
+           ========================================= */
+
         @media (max-width: 850px) {
-            .action-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
             .container {
-                padding: 55px 0;
+
+                padding:
+                    30px 0 50px;
+
             }
+
+
+            .action-buttons {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
 
             .biography-box {
+
                 padding: 30px;
+
             }
+
+
+            #logo-container {
+
+                height: 220px;
+
+            }
+
         }
 
-        /* Mobile */
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
         @media (max-width: 520px) {
+
             .container {
+
                 width: 90%;
-                padding: 40px 0;
+
+                padding:
+                    25px 0 40px;
+
             }
 
-            .main-title {
-                font-size: 3.2rem;
-                letter-spacing: -2px;
+
+            #logo-container {
+
+                height: 165px;
+
             }
+
 
             .subtitle {
-                font-size: 0.72rem;
+
+                font-size: 0.67rem;
+
                 letter-spacing: 3px;
+
                 margin-bottom: 30px;
+
             }
+
 
             .divider {
+
                 margin-bottom: 30px;
+
             }
+
 
             .biography-box {
-                padding: 25px 22px;
+
+                padding:
+                    25px 22px;
+
                 margin-bottom: 35px;
+
             }
+
 
             .biography-box p {
+
                 font-size: 0.88rem;
+
                 line-height: 1.75;
+
             }
+
 
             .action-buttons {
+
                 grid-template-columns: 1fr;
+
                 gap: 12px;
+
             }
+
 
             .btn {
+
                 min-height: 90px;
+
                 flex-direction: row;
+
                 justify-content: flex-start;
-                padding: 18px 25px;
+
+                padding:
+                    18px 25px;
+
             }
 
-            .btn-number {
-                top: 10px;
-                right: 12px;
-                left: auto;
-            }
 
             .btn-icon {
+
                 flex-shrink: 0;
+
             }
+
+
+            .btn-text {
+
+                flex: 1;
+
+                text-align: left;
+
+                padding-left: 3px;
+
+            }
+
 
             footer {
+
                 margin-top: 35px;
+
             }
+
         }
 
+
         @media (prefers-reduced-motion: reduce) {
+
             *,
+
             *::before,
+
             *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
+
+                animation-duration:
+                    0.01ms !important;
+
+                transition-duration:
+                    0.01ms !important;
+
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <main class="container">
 
-        <header class="hero">
-
-            <div class="brand-line">
-                <span></span>
-                <p>Elite Fitness & Performance</p>
-                <span></span>
-            </div>
-
-            <h1 class="main-title">
-                <span class="white">Palash </span><span class="red">GOLD</span><span class="white">er</span>
-            </h1>
-
-            <h2 class="subtitle">Fitness Influencer</h2>
-
-            <div class="divider"></div>
-
-        </header>
+<main class="container">
 
 
-        <section class="biography-box">
+    <!-- =========================================
+         HERO
+         ========================================= -->
 
-            <div class="bio-label">The Journey</div>
-
-            <p>
-                [Insert your biography here. Talk about your fitness journey,
-                your dedication to building muscle, your goals, your lifestyle,
-                and what inspires you to push your limits every day.]
-            </p>
-
-        </section>
+    <header class="hero">
 
 
-        <div class="navigation-title">
-            Explore • Train • Transform
+        <div id="logo-container">
+
+            <div class="logo-glow"></div>
+
         </div>
 
 
-        <!--
-            BUTTON ORDER:
-            1. Consultation
-            2. Training Charges
-            3. Gym
-            4. Events
-        -->
+        <h2 class="subtitle">
 
-        <nav class="action-buttons" aria-label="Main navigation">
+            Fitness Influencer
 
-            <a href="consultation.html" class="btn featured">
-                <span class="btn-number">01</span>
-                <span class="btn-icon">✦</span>
-                <span class="btn-text">CONSULTATION</span>
-            </a>
-
-            <a href="training.html" class="btn">
-                <span class="btn-number">02</span>
-                <span class="btn-icon">↗</span>
-                <span class="btn-text">TRAINING</span>
-            </a>
-
-            <a href="gym.html" class="btn">
-                <span class="btn-number">03</span>
-                <span class="btn-icon">◆</span>
-                <span class="btn-text">GYM</span>
-            </a>
-
-            <a href="events.html" class="btn">
-                <span class="btn-number">04</span>
-                <span class="btn-icon">◇</span>
-                <span class="btn-text">EVENTS</span>
-            </a>
-
-        </nav>
+        </h2>
 
 
-        <footer>
-            <div class="line"></div>
-            <p>
-                © 2026 <strong>PALASH GOLDER</strong> • TRAIN HARD • STAY CONSISTENT
-            </p>
-        </footer>
+        <div class="divider"></div>
 
-    </main>
+
+    </header>
+
+
+    <!-- =========================================
+         BIOGRAPHY
+         ========================================= -->
+
+    <section class="biography-box">
+
+
+        <div class="bio-label">
+
+            The Journey
+
+        </div>
+
+
+        <p>
+
+            [Insert your biography here. Talk about your fitness journey,
+            your dedication to building muscle, your goals, your lifestyle,
+            and what inspires you to push your limits every day.]
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
+    <div class="navigation-title">
+
+        Explore • Train • Transform
+
+    </div>
+
+
+    <nav
+        class="action-buttons"
+        aria-label="Main navigation"
+    >
+
+
+        <!-- =====================================
+             CONSULTATION
+             Person + Speech Bubble
+             ===================================== -->
+
+        <a
+            href="consultation.html"
+            class="btn featured"
+        >
+
+            <span class="btn-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <!-- Person -->
+
+                    <circle
+                        cx="9"
+                        cy="8"
+                        r="3"
+                    />
+
+                    <path
+                        d="M3.5 19c.7-3.1 2.5-5 5.5-5s4.8 1.9 5.5 5"
+                    />
+
+                    <!-- Speech bubble -->
+
+                    <path
+                        d="M14.5 5.5h5a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2.2l-2.3 2v-2h-.5a2 2 0 0 1-2-2v-4"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="btn-text">
+
+                CONSULTATION
+
+            </span>
+
+        </a>
+
+
+        <!-- =====================================
+             TRAINING
+             Dumbbell
+             ===================================== -->
+
+        <a
+            href="training.html"
+            class="btn"
+        >
+
+            <span class="btn-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <!-- Bar -->
+
+                    <path
+                        d="M5 12h14"
+                    />
+
+                    <!-- Left plates -->
+
+                    <path
+                        d="M3 9v6"
+                    />
+
+                    <path
+                        d="M5 8v8"
+                    />
+
+                    <!-- Right plates -->
+
+                    <path
+                        d="M19 8v8"
+                    />
+
+                    <path
+                        d="M21 9v6"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="btn-text">
+
+                TRAINING
+
+            </span>
+
+        </a>
+
+
+        <!-- =====================================
+             GYM
+             Location Pin
+             ===================================== -->
+
+        <a
+            href="gym.html"
+            class="btn"
+        >
+
+            <span class="btn-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <path
+                        d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="10"
+                        r="2.5"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="btn-text">
+
+                GYM
+
+            </span>
+
+        </a>
+
+
+        <!-- =====================================
+             EVENTS
+             Calendar / Event
+             ===================================== -->
+
+        <a
+            href="events.html"
+            class="btn"
+        >
+
+            <span class="btn-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <!-- Calendar -->
+
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="16"
+                        rx="2"
+                    />
+
+                    <path
+                        d="M7 3v4"
+                    />
+
+                    <path
+                        d="M17 3v4"
+                    />
+
+                    <path
+                        d="M3 10h18"
+                    />
+
+                    <!-- Event star -->
+
+                    <path
+                        d="m12 13 .8 1.6 1.7.25-1.25 1.2.3 1.7-1.55-.8-1.55.8.3-1.7-1.25-1.2 1.7-.25L12 13Z"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="btn-text">
+
+                EVENTS
+
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer>
+
+
+        <div class="line"></div>
+
+
+        <p>
+
+            © 2026
+
+            <strong>
+
+                PALASH GOLDER
+
+            </strong>
+
+            • TRAIN HARD • STAY CONSISTENT
+
+        </p>
+
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- =================================================
+     THREE.JS
+     ================================================= -->
+
+<script type="importmap">
+
+{
+
+    "imports": {
+
+        "three":
+            "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+
+        "three/addons/":
+            "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+
+    }
+
+}
+
+</script>
+
+
+<script type="module">
+
+
+    import * as THREE from 'three';
+
+
+    import {
+        FontLoader
+    }
+    from
+        'three/addons/loaders/FontLoader.js';
+
+
+    import {
+        TextGeometry
+    }
+    from
+        'three/addons/geometries/TextGeometry.js';
+
+
+    import {
+        RoomEnvironment
+    }
+    from
+        'three/addons/environments/RoomEnvironment.js';
+
+
+
+    /* =========================================
+       CONTAINER
+       ========================================= */
+
+    const container =
+        document.getElementById(
+            "logo-container"
+        );
+
+
+
+    /* =========================================
+       SCENE
+       ========================================= */
+
+    const scene =
+        new THREE.Scene();
+
+
+
+    /* =========================================
+       CAMERA
+       ========================================= */
+
+    const camera =
+        new THREE.PerspectiveCamera(
+
+            32,
+
+            container.clientWidth /
+            container.clientHeight,
+
+            0.1,
+
+            100
+
+        );
+
+
+    camera.position.set(
+
+        0,
+        0,
+        13
+
+    );
+
+
+
+    /* =========================================
+       RENDERER
+       ========================================= */
+
+    const renderer =
+        new THREE.WebGLRenderer({
+
+            antialias: true,
+
+            alpha: true,
+
+            powerPreference:
+                "high-performance"
+
+        });
+
+
+    renderer.setPixelRatio(
+
+        Math.min(
+
+            window.devicePixelRatio,
+
+            2
+
+        )
+
+    );
+
+
+    renderer.setSize(
+
+        container.clientWidth,
+
+        container.clientHeight
+
+    );
+
+
+    renderer.outputColorSpace =
+        THREE.SRGBColorSpace;
+
+
+    renderer.toneMapping =
+        THREE.ACESFilmicToneMapping;
+
+
+    renderer.toneMappingExposure =
+        1.25;
+
+
+    renderer.shadowMap.enabled =
+        true;
+
+
+    renderer.shadowMap.type =
+        THREE.PCFSoftShadowMap;
+
+
+    container.appendChild(
+
+        renderer.domElement
+
+    );
+
+
+
+    /* =========================================
+       ENVIRONMENT
+       ========================================= */
+
+    const environment =
+        new RoomEnvironment(
+            renderer
+        );
+
+
+    const pmrem =
+        new THREE.PMREMGenerator(
+            renderer
+        );
+
+
+    scene.environment =
+        pmrem.fromScene(
+
+            environment,
+
+            0.04
+
+        ).texture;
+
+
+    environment.dispose();
+
+    pmrem.dispose();
+
+
+
+    /* =========================================
+       LIGHTS
+       ========================================= */
+
+    const keyLight =
+        new THREE.DirectionalLight(
+
+            0xfff1bd,
+
+            5
+
+        );
+
+
+    keyLight.position.set(
+
+        -5,
+        6,
+        8
+
+    );
+
+
+    scene.add(
+
+        keyLight
+
+    );
+
+
+    const goldLight =
+        new THREE.DirectionalLight(
+
+            0xe0ad43,
+
+            4
+
+        );
+
+
+    goldLight.position.set(
+
+        5,
+        3,
+        5
+
+    );
+
+
+    scene.add(
+
+        goldLight
+
+    );
+
+
+    const topLight =
+        new THREE.PointLight(
+
+            0xffe5a0,
+
+            7,
+
+            25
+
+        );
+
+
+    topLight.position.set(
+
+        0,
+        5,
+        6
+
+    );
+
+
+    scene.add(
+
+        topLight
+
+    );
+
+
+    const frontLight =
+        new THREE.PointLight(
+
+            0xffd36b,
+
+            3,
+
+            20
+
+        );
+
+
+    frontLight.position.set(
+
+        0,
+        0,
+        9
+
+    );
+
+
+    scene.add(
+
+        frontLight
+
+    );
+
+
+
+    /* =========================================
+       GOLD MATERIAL
+       ========================================= */
+
+    const goldMaterial =
+        new THREE.MeshPhysicalMaterial({
+
+            color:
+                new THREE.Color(
+                    0xC9962C
+                ),
+
+            metalness: 1,
+
+            roughness: 0.13,
+
+            clearcoat: 1,
+
+            clearcoatRoughness: 0.06,
+
+            specularIntensity: 1,
+
+            specularColor:
+                new THREE.Color(
+                    0xffe9a3
+                )
+
+        });
+
+
+
+    /* =========================================
+       LOAD FONT
+       ========================================= */
+
+    const fontLoader =
+        new FontLoader();
+
+
+    fontLoader.load(
+
+        "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/fonts/helvetiker_bold.typeface.json",
+
+        function(font) {
+
+
+            /* =================================
+               CREATE TEXT
+               ================================= */
+
+            const geometry =
+                new TextGeometry(
+
+                    "Palash GOLDer",
+
+                    {
+
+                        font: font,
+
+                        size: 1.55,
+
+                        depth: 0.45,
+
+                        curveSegments: 16,
+
+                        bevelEnabled: true,
+
+                        bevelThickness: 0.09,
+
+                        bevelSize: 0.055,
+
+                        bevelOffset: 0,
+
+                        bevelSegments: 6
+
+                    }
+
+                );
+
+
+            /* =================================
+               CENTER TEXT
+               ================================= */
+
+            geometry.computeBoundingBox();
+
+
+            const bounds =
+                geometry.boundingBox;
+
+
+            const width =
+                bounds.max.x -
+                bounds.min.x;
+
+
+            const height =
+                bounds.max.y -
+                bounds.min.y;
+
+
+            geometry.translate(
+
+                -width / 2,
+
+                -height / 2,
+
+                0
+
+            );
+
+
+            /* =================================
+               CREATE 3D LOGO
+               ================================= */
+
+            const logo =
+                new THREE.Mesh(
+
+                    geometry,
+
+                    goldMaterial
+
+                );
+
+
+            logo.castShadow = true;
+
+            logo.receiveShadow = true;
+
+
+            logo.rotation.x =
+                THREE.MathUtils.degToRad(
+                    -4
+                );
+
+
+            logo.rotation.y =
+                THREE.MathUtils.degToRad(
+                    -3
+                );
+
+
+            logo.scale.set(
+
+                0.001,
+
+                0.001,
+
+                0.001
+
+            );
+
+
+            scene.add(
+
+                logo
+
+            );
+
+
+            /* =================================
+               SOFT FLOOR SHADOW
+               ================================= */
+
+            const shadowGeometry =
+                new THREE.PlaneGeometry(
+
+                    9,
+
+                    1.8
+
+                );
+
+
+            const shadowMaterial =
+                new THREE.MeshBasicMaterial({
+
+                    color: 0x000000,
+
+                    transparent: true,
+
+                    opacity: 0.45
+
+                });
+
+
+            const shadow =
+                new THREE.Mesh(
+
+                    shadowGeometry,
+
+                    shadowMaterial
+
+                );
+
+
+            shadow.rotation.x =
+                -Math.PI / 2;
+
+
+            shadow.position.set(
+
+                0,
+
+                -1.05,
+
+                -0.5
+
+            );
+
+
+            shadow.scale.set(
+
+                1,
+
+                0.45,
+
+                1
+
+            );
+
+
+            scene.add(
+
+                shadow
+
+            );
+
+
+
+            /* =================================
+               MOUSE VARIABLES
+               ================================= */
+
+            let mouseX = 0;
+
+            let mouseY = 0;
+
+            let smoothX = 0;
+
+            let smoothY = 0;
+
+
+
+            /* =================================
+               MOUSE MOVEMENT
+               ================================= */
+
+            window.addEventListener(
+
+                "mousemove",
+
+                function(event) {
+
+                    mouseX =
+                        (event.clientX /
+                        window.innerWidth) *
+                        2 - 1;
+
+
+                    mouseY =
+                        (event.clientY /
+                        window.innerHeight) *
+                        2 - 1;
+
+                }
+
+            );
+
+
+
+            /* =================================
+               TOUCH
+               ================================= */
+
+            window.addEventListener(
+
+                "touchmove",
+
+                function(event) {
+
+                    if (
+
+                        event.touches &&
+                        event.touches.length
+
+                    ) {
+
+                        mouseX =
+                            (event.touches[0].clientX /
+                            window.innerWidth) *
+                            2 - 1;
+
+
+                        mouseY =
+                            (event.touches[0].clientY /
+                            window.innerHeight) *
+                            2 - 1;
+
+                    }
+
+                },
+
+                {
+
+                    passive: true
+
+                }
+
+            );
+
+
+
+            /* =================================
+               ANIMATION
+               ================================= */
+
+            const startTime =
+                performance.now();
+
+
+            function animate(time) {
+
+                requestAnimationFrame(
+
+                    animate
+
+                );
+
+
+                smoothX += (
+
+                    mouseX * 0.35 -
+                    smoothX
+
+                ) * 0.045;
+
+
+                smoothY += (
+
+                    mouseY * 0.18 -
+                    smoothY
+
+                ) * 0.045;
+
+
+                logo.rotation.y =
+                    THREE.MathUtils.degToRad(
+
+                        -3
+
+                    ) +
+
+                    smoothX * 0.20;
+
+
+                logo.rotation.x =
+                    THREE.MathUtils.degToRad(
+
+                        -4
+
+                    ) -
+
+                    smoothY * 0.10;
+
+
+                logo.position.y =
+                    Math.sin(
+
+                        time * 0.0012
+
+                    ) * 0.035;
+
+
+                const elapsed =
+                    time - startTime;
+
+
+                if (
+
+                    elapsed < 1200
+
+                ) {
+
+                    const progress =
+                        Math.min(
+
+                            elapsed / 1200,
+
+                            1
+
+                        );
+
+
+                    const eased =
+                        1 -
+
+                        Math.pow(
+
+                            1 - progress,
+
+                            3
+
+                        );
+
+
+                    const scale =
+                        0.001 +
+
+                        eased * 0.999;
+
+
+                    logo.scale.set(
+
+                        scale,
+
+                        scale,
+
+                        scale
+
+                    );
+
+                }
+
+
+                renderer.render(
+
+                    scene,
+
+                    camera
+
+                );
+
+            }
+
+
+            animate(
+
+                performance.now()
+
+            );
+
+
+
+            /* =================================
+               RESIZE
+               ================================= */
+
+            function resize() {
+
+                const width =
+                    container.clientWidth;
+
+
+                const height =
+                    container.clientHeight;
+
+
+                camera.aspect =
+                    width / height;
+
+
+                camera.updateProjectionMatrix();
+
+
+                renderer.setSize(
+
+                    width,
+
+                    height
+
+                );
+
+            }
+
+
+            window.addEventListener(
+
+                "resize",
+
+                resize
+
+            );
+
+
+            resize();
+
+        },
+
+
+        undefined,
+
+
+        function(error) {
+
+            console.error(
+
+                "3D font failed to load.",
+
+                error
+
+            );
+
+        }
+
+    );
+
+</script>
+
 
 </body>
+
 </html>
