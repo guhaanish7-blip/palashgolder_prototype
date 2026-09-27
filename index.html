@@ -1,2755 +1,2213 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Palash GOLDer | Fitness Influencer</title>
 
-<meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+  <style>
 
-<meta
-    name="theme-color"
-    content="#020202"
->
-
-<title>Palash GOLDer | Fitness Influencer</title>
-
-
-<!-- =========================================
-     GOOGLE FONT
-     ========================================= -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
->
-
-
-<style>
-
-    /* =========================================
-       ROOT COLORS
-       ========================================= */
+    /* =========================================================
+       ROOT
+    ========================================================= */
 
     :root {
+      --black: #020202;
+      --dark: #080806;
 
-        --black: #020202;
-        --dark: #080806;
+      --gold-dark: #513400;
+      --gold-deep: #76500b;
+      --gold: #ad7d20;
+      --gold-mid: #d1a63d;
+      --gold-light: #efd477;
+      --gold-bright: #fff3b0;
 
-        --gold-dark: #513400;
-        --gold-deep: #76500b;
-        --gold: #ad7d20;
-        --gold-mid: #d1a63d;
-        --gold-light: #efd477;
-        --gold-bright: #fff3b0;
-
-        --white: #f4f1e8;
-        --gray: #77736a;
-        --light-gray: #d0cbc0;
-
+      --white: #f4f1e8;
+      --gray: #77736a;
+      --light-gray: #d0cbc0;
     }
 
 
-    /* =========================================
+    /* =========================================================
        RESET
-       ========================================= */
+    ========================================================= */
 
     * {
-
-        margin: 0;
-        padding: 0;
-
-        box-sizing: border-box;
-
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
 
     html {
-
-        scroll-behavior: smooth;
-
-        background: #020202;
-
+      scroll-behavior: smooth;
     }
-
 
     body {
-
-        min-height: 100vh;
-        min-height: 100dvh;
-
-        font-family:
-            'Montserrat',
-            sans-serif;
-
-        color: var(--white);
-
-        background: #020202;
-
-        overflow-x: hidden;
-
-        position: relative;
-
-        isolation: isolate;
-
+      min-height: 100vh;
+      background: var(--black);
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
     }
 
 
-    /* =========================================
-       FIXED BACKGROUND IMAGE
-       
-       IMPORTANT:
-       index_overlay.jpg must be in the
-       same folder as index.html.
-       
-       Image dimensions:
-       3752 x 4813
-       ========================================= */
+    /* =========================================================
+       BACKGROUND IMAGE + BLACK OVERLAY
+    ========================================================= */
 
-    .page-background {
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
 
-        position: fixed;
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.78),
+          rgba(0, 0, 0, 0.88)
+        ),
+        url("index_overlay.jpg");
 
-        top: 0;
-        left: 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
 
-        width: 100%;
-        height: 100%;
-
-        z-index: -10;
-
-        pointer-events: none;
-
-        overflow: hidden;
-
-        background-color: #020202;
-
-        transform: translate3d(0, 0, 0);
-
-        backface-visibility: hidden;
-
-        -webkit-backface-visibility: hidden;
-
+      z-index: -3;
+      pointer-events: none;
     }
 
 
-    /* Actual image */
+    /* =========================================================
+       GOLD ATMOSPHERIC GLOW
+    ========================================================= */
 
-    .page-background::before {
+    body::after {
+      content: "";
+      position: fixed;
 
-        content: "";
+      width: 600px;
+      height: 600px;
 
-        position: absolute;
+      top: -300px;
+      left: 50%;
 
-        inset: 0;
+      transform: translateX(-50%);
 
-        background-image:
-            url("index_overlay.jpeg");
+      background:
+        radial-gradient(
+          circle,
+          rgba(211, 166, 61, 0.14),
+          rgba(0, 0, 0, 0) 70%
+        );
 
-        background-repeat: no-repeat;
+      filter: blur(20px);
 
-        /*
-         * Cover ensures the image always fills
-         * the screen without distortion.
-         */
-
-        background-size: cover;
-
-        background-position:
-            center center;
-
-        transform:
-            translate3d(0, 0, 0)
-            scale(1.02);
-
-        backface-visibility: hidden;
-
-        -webkit-backface-visibility: hidden;
-
+      z-index: -2;
+      pointer-events: none;
     }
 
 
-    /* =========================================
-       BLACK IMAGE OVERLAY
-       ========================================= */
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
 
-    .page-background::after {
+    .topbar {
+      position: sticky;
+      top: 0;
 
-        content: "";
+      width: 100%;
+      min-height: 88px;
 
-        position: absolute;
+      padding: 14px 4%;
 
-        inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-        background:
+      background:
+        linear-gradient(
+          180deg,
+          rgba(5, 5, 4, 0.97),
+          rgba(5, 5, 4, 0.86)
+        );
 
-            /* Main black overlay */
+      border-bottom:
+        1px solid rgba(209, 166, 61, 0.30);
 
-            linear-gradient(
-                rgba(0, 0, 0, 0.79),
-                rgba(0, 0, 0, 0.79)
-            ),
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
 
-            /* Golden atmospheric light */
-
-            radial-gradient(
-                ellipse at 50% -10%,
-                rgba(190, 145, 35, 0.15),
-                transparent 43%
-            ),
-
-            /* Bottom atmospheric glow */
-
-            radial-gradient(
-                ellipse at 10% 80%,
-                rgba(180, 130, 30, 0.045),
-                transparent 32%
-            );
-
-        transform:
-            translate3d(0, 0, 0);
-
-        pointer-events: none;
-
+      z-index: 1000;
+      isolation: isolate;
     }
 
 
-    /* =========================================
-       SUBTLE SCREEN EFFECT
-       ========================================= */
+    /* =========================================================
+       BRAND
+    ========================================================= */
 
-    .screen-effect {
-
-        position: fixed;
-
-        inset: 0;
-
-        pointer-events: none;
-
-        z-index: -5;
-
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.012),
-                transparent
-            );
-
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
     }
 
 
-    /* =========================================
+    /* NORMAL GOLDEN PALASH GOLDER */
+
+    .brand-name {
+      display: inline-block;
+
+      width: fit-content;
+
+      font-size: clamp(1.45rem, 3vw, 2.15rem);
+      font-weight: 900;
+
+      line-height: 1;
+
+      letter-spacing: 1px;
+
+      color: var(--gold-light);
+
+      text-shadow:
+        0 1px 0 rgba(255, 241, 177, 0.20),
+        0 2px 0 rgba(0, 0, 0, 0.65),
+        0 0 12px rgba(210, 165, 60, 0.10);
+    }
+
+
+    /* =========================================================
+       FITNESS INFLUENCER
+    ========================================================= */
+
+    .brand-subtitle {
+      color: var(--light-gray);
+
+      font-size: 0.58rem;
+      font-weight: 700;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      opacity: 0.72;
+    }
+
+
+    /* =========================================================
+       MENU BUTTON
+    ========================================================= */
+
+    .menu-toggle {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(239, 212, 119, 0.60);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(35, 29, 14, 0.95),
+          rgba(8, 8, 6, 0.98)
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+      position: relative;
+      z-index: 1200;
+    }
+
+
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+
+      border-color: var(--gold-light);
+
+      box-shadow:
+        0 0 20px rgba(209, 166, 61, 0.18);
+    }
+
+
+    .menu-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+
+    .menu-dots span {
+      width: 4px;
+      height: 4px;
+
+      background: var(--gold-light);
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 8px rgba(239, 212, 119, 0.45);
+    }
+
+
+    /* =========================================================
+       QUICK MENU
+    ========================================================= */
+
+    .quick-menu {
+      position: absolute;
+
+      top: calc(100% + 12px);
+      right: 4%;
+
+      width: min(320px, 88vw);
+
+      padding: 10px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(19, 17, 11, 0.98),
+          rgba(3, 3, 3, 0.99)
+        );
+
+      border:
+        1px solid rgba(209, 166, 61, 0.48);
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(180, 135, 35, 0.08);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transform:
+        translateY(-10px)
+        scale(0.98);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+      z-index: 1100;
+    }
+
+
+    .quick-menu.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      width: 100%;
+
+      padding: 15px 14px;
+
+      color: var(--white);
+
+      text-decoration: none;
+
+      border-radius: 12px;
+
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+    }
+
+
+    .quick-link:hover {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(173, 125, 32, 0.14),
+          rgba(173, 125, 32, 0.04)
+        );
+
+      transform: translateX(4px);
+
+      color: var(--gold-bright);
+    }
+
+
+    .quick-icon {
+      width: 40px;
+      height: 40px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(209, 166, 61, 0.42);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(209, 166, 61, 0.13),
+          rgba(0, 0, 0, 0.2)
+        );
+
+      color: var(--gold-light);
+    }
+
+
+    .quick-icon svg {
+      width: 20px;
+      height: 20px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    .quick-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+
+    .quick-text strong {
+      font-size: 0.82rem;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+
+    .quick-text span {
+      font-size: 0.64rem;
+
+      color: var(--gray);
+
+      letter-spacing: 0.5px;
+    }
+
+
+    /* =========================================================
        MAIN CONTAINER
-       ========================================= */
+    ========================================================= */
 
     .container {
+      width: min(1100px, 92%);
 
-        width: min(1100px, 92%);
+      margin: 0 auto;
 
-        margin: 0 auto;
-
-        padding:
-            35px 0 60px;
-
-        position: relative;
-
-        z-index: 1;
-
+      padding: 45px 0 60px;
     }
 
 
-    /* =========================================
-       HERO
-       ========================================= */
+    /* =========================================================
+       JOURNEY HEADER
+    ========================================================= */
 
-    .hero {
+    .journey-header {
+      text-align: center;
 
-        text-align: center;
-
-        position: relative;
-
+      margin-bottom: 25px;
     }
 
 
-    /* =========================================
-       THREE.JS LOGO CONTAINER
-       ========================================= */
+    .kicker {
+      display: inline-block;
 
-    #logo-container {
+      color: var(--gold-light);
 
-        width: 100%;
+      font-size: clamp(1.35rem, 3vw, 2rem);
 
-        height: 250px;
+      font-weight: 800;
 
-        position: relative;
+      letter-spacing: 2px;
 
-        margin: 0 auto;
+      text-transform: uppercase;
 
-        overflow: hidden;
-
-        animation:
-            logoAppear 1s ease both;
-
+      position: relative;
     }
 
 
-    #logo-container canvas {
+    .kicker::after {
+      content: "";
 
-        display: block;
+      display: block;
 
-        width: 100% !important;
+      width: 55px;
+      height: 2px;
 
-        height: 100% !important;
+      margin: 11px auto 0;
 
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-light),
+          transparent
+        );
+
+      box-shadow:
+        0 0 10px rgba(239, 212, 119, 0.30);
     }
 
 
-    /* =========================================
-       LOGO GLOW
-       ========================================= */
+    /* =========================================================
+       JOURNEY TAGLINE
+    ========================================================= */
 
-    .logo-glow {
+    .journey-tagline {
+      margin-top: 10px;
 
-        position: absolute;
+      color: var(--gold-mid);
 
-        width: 55%;
+      font-size: clamp(0.62rem, 1.5vw, 0.78rem);
 
-        height: 80px;
+      font-weight: 700;
 
-        left: 50%;
+      letter-spacing: 3px;
 
-        bottom: 15px;
+      text-transform: uppercase;
 
-        transform:
-            translateX(-50%);
+      opacity: 0.88;
 
-        background:
-            radial-gradient(
-                ellipse,
-                rgba(220,170,50,0.20),
-                transparent 70%
-            );
-
-        filter: blur(25px);
-
-        pointer-events: none;
-
-        z-index: -1;
-
+      text-shadow:
+        0 0 12px rgba(209, 166, 61, 0.12);
     }
 
 
-    /* =========================================
-       SUBTITLE
-       ========================================= */
+    /* =========================================================
+       JOURNEY SLIDER
+    ========================================================= */
 
-    .subtitle {
+    .slider {
+      position: relative;
 
-        color: #80796a;
+      width: 100%;
 
-        font-size:
-            clamp(
-                0.82rem,
-                2vw,
-                1.05rem
-            );
+      aspect-ratio: 16 / 9;
 
-        font-weight: 700;
+      overflow: hidden;
 
-        letter-spacing: 6px;
+      border-radius: 18px;
 
-        text-transform: uppercase;
+      border:
+        1px solid rgba(209, 166, 61, 0.35);
 
-        margin-top: -5px;
+      background: #050505;
 
-        margin-bottom: 38px;
-
-        animation:
-            fadeUp 0.8s ease 0.4s both;
-
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(173, 125, 32, 0.08);
     }
 
 
-    .subtitle::before {
+    .slides {
+      width: 100%;
+      height: 100%;
 
-        content: "# ";
-
-        color: var(--gold-mid);
-
+      position: relative;
     }
 
 
-    /* =========================================
-       DIVIDER
-       ========================================= */
+    .slide {
+      position: absolute;
 
-    .divider {
+      inset: 0;
 
-        width: 90px;
+      opacity: 0;
 
-        height: 2px;
+      transform: scale(1.035);
 
-        margin:
-            0 auto 45px;
+      transition:
+        opacity 0.8s ease,
+        transform 4.5s ease;
 
-        background:
-            linear-gradient(
-                90deg,
-                var(--gold-dark),
-                var(--gold-bright),
-                var(--gold-dark)
-            );
-
-        box-shadow:
-            0 0 10px
-            rgba(220,170,60,0.35);
-
-        animation:
-            expand 0.8s ease 0.5s both;
-
+      pointer-events: none;
     }
 
 
-    /* =========================================
-       BIOGRAPHY
-       ========================================= */
+    .slide.active {
+      opacity: 1;
 
-    .biography-box {
+      transform: scale(1);
 
-        position: relative;
-
-        max-width: 850px;
-
-        margin:
-            0 auto 55px;
-
-        padding:
-            38px 42px;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(10,10,8,0.80),
-                rgba(190,145,40,0.025),
-                rgba(0,0,0,0.74)
-            );
-
-        border:
-            1px solid
-            rgba(210,165,60,0.14);
-
-        border-left:
-            4px solid
-            var(--gold);
-
-        border-radius: 12px;
-
-        box-shadow:
-
-            0 20px 60px
-            rgba(0,0,0,0.65),
-
-            inset 0 1px 0
-            rgba(255,255,255,0.025);
-
-        text-align: left;
-
-        overflow: hidden;
-
-        backdrop-filter:
-            blur(6px);
-
-        -webkit-backdrop-filter:
-            blur(6px);
-
-        animation:
-            fadeUp 0.8s ease 0.6s both;
-
+      pointer-events: auto;
     }
 
 
-    .biography-box::before {
+    .slide img {
+      width: 100%;
+      height: 100%;
 
-        content: "";
+      object-fit: cover;
 
-        position: absolute;
-
-        top: -80px;
-        left: -80px;
-
-        width: 250px;
-        height: 250px;
-
-        background:
-            radial-gradient(
-                circle,
-                rgba(210,165,55,0.075),
-                transparent 70%
-            );
-
-        filter: blur(30px);
-
-        pointer-events: none;
-
+      display: block;
     }
 
 
-    .bio-label {
+    .slide::after {
+      content: "";
 
-        position: relative;
+      position: absolute;
 
-        display: inline-flex;
+      inset: 0;
 
-        align-items: center;
-
-        gap: 10px;
-
-        color:
-            var(--gold-light);
-
-        font-size:
-            0.72rem;
-
-        font-weight: 800;
-
-        letter-spacing: 3px;
-
-        text-transform: uppercase;
-
-        margin-bottom: 17px;
-
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.18) 40%,
+          rgba(0, 0, 0, 0.82) 100%
+        );
     }
 
 
-    .bio-label::before {
+    /* =========================================================
+       CHANGING IMAGE-SPECIFIC TEXT
+    ========================================================= */
 
-        content: "";
+    .slide-content {
+      position: absolute;
 
-        width: 7px;
-        height: 7px;
+      left: 6%;
+      bottom: 8%;
 
-        background:
-            var(--gold-mid);
+      max-width: 600px;
 
-        border-radius: 50%;
-
-        box-shadow:
-            0 0 10px
-            rgba(220,170,60,0.7);
-
+      z-index: 2;
     }
 
 
-    .biography-box p {
+    .slide-content h2 {
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
 
-        position: relative;
+      font-weight: 900;
 
-        color:
-            var(--light-gray);
+      letter-spacing: 1px;
 
-        font-size:
-            1rem;
+      text-transform: uppercase;
 
-        line-height:
-            1.9;
+      color: var(--white);
 
-        font-weight: 400;
+      margin-bottom: 8px;
 
+      text-shadow:
+        0 3px 20px rgba(0, 0, 0, 0.8);
     }
 
 
-    /* =========================================
-       NAVIGATION TITLE
-       ========================================= */
+    .slide-content p {
+      font-size: clamp(0.65rem, 1.5vw, 0.82rem);
+
+      color: var(--light-gray);
+
+      line-height: 1.7;
+
+      max-width: 560px;
+    }
+
+
+    /* =========================================================
+       SLIDER ARROWS
+    ========================================================= */
+
+    .slider-arrow {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 44px;
+      height: 44px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(239, 212, 119, 0.55);
+
+      background:
+        rgba(4, 4, 3, 0.65);
+
+      color: var(--gold-light);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      z-index: 5;
+
+      font-size: 1.2rem;
+
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+
+    .slider-arrow:hover {
+      background:
+        rgba(173, 125, 32, 0.18);
+
+      border-color: var(--gold-light);
+
+      transform:
+        translateY(-50%)
+        scale(1.08);
+    }
+
+
+    .slider-arrow.prev {
+      left: 18px;
+    }
+
+
+    .slider-arrow.next {
+      right: 18px;
+    }
+
+
+    /* =========================================================
+       SLIDER DOTS
+    ========================================================= */
+
+    .slider-dots {
+      position: absolute;
+
+      left: 50%;
+      bottom: 18px;
+
+      transform: translateX(-50%);
+
+      display: flex;
+
+      gap: 7px;
+
+      z-index: 6;
+    }
+
+
+    .slider-dot {
+      width: 7px;
+      height: 7px;
+
+      padding: 0;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255, 255, 255, 0.35);
+
+      cursor: pointer;
+
+      transition:
+        width 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .slider-dot.active {
+      width: 24px;
+
+      border-radius: 20px;
+
+      background:
+        var(--gold-light);
+
+      box-shadow:
+        0 0 12px rgba(239, 212, 119, 0.35);
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .navigation {
+      margin-top: 55px;
+    }
+
 
     .navigation-title {
+      text-align: center;
 
-        text-align: center;
+      margin-bottom: 22px;
 
-        color: #625e54;
+      color: var(--light-gray);
 
-        font-size:
-            0.68rem;
+      font-size: 0.72rem;
 
-        font-weight: 800;
+      font-weight: 700;
 
-        letter-spacing: 4px;
+      letter-spacing: 4px;
 
-        text-transform: uppercase;
-
-        margin-bottom: 22px;
-
-        animation:
-            fadeUp 0.8s ease 0.7s both;
-
+      text-transform: uppercase;
     }
 
-
-    /* =========================================
-       BUTTON GRID
-       ========================================= */
 
     .action-buttons {
+      display: grid;
 
-        display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
 
-        grid-template-columns:
-            repeat(4, 1fr);
-
-        gap: 15px;
-
-        animation:
-            fadeUp 0.8s ease 0.8s both;
-
+      gap: 16px;
     }
 
 
-    /* =========================================
-       BUTTON
-       ========================================= */
+    /* =========================================================
+       ACTION BUTTON
+    ========================================================= */
 
     .btn {
+      position: relative;
 
-        position: relative;
+      min-height: 125px;
 
-        min-height: 125px;
+      padding: 25px 18px;
 
-        padding:
-            25px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-        display: flex;
+      gap: 12px;
 
-        flex-direction: column;
+      text-decoration: none;
 
-        align-items: center;
+      color: var(--white);
 
-        justify-content: center;
+      border-radius: 15px;
 
-        gap: 13px;
+      border:
+        1px solid rgba(209, 166, 61, 0.35);
 
-        text-decoration: none;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(22, 20, 13, 0.94),
+          rgba(5, 5, 4, 0.98)
+        );
 
-        color:
-            var(--white);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 15px 35px rgba(0, 0, 0, 0.22);
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(23,21,17,0.91),
-                rgba(10,10,8,0.92)
-            );
+      overflow: hidden;
 
-        border:
-            1px solid
-            rgba(210,165,60,0.13);
-
-        border-radius: 10px;
-
-        overflow: hidden;
-
-        backdrop-filter:
-            blur(6px);
-
-        -webkit-backdrop-filter:
-            blur(6px);
-
-        transition:
-            transform 0.35s ease,
-            border-color 0.35s ease,
-            box-shadow 0.35s ease;
-
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
     }
 
-
-    /* =========================================
-       GOLD BOTTOM LINE
-       ========================================= */
 
     .btn::before {
+      content: "";
 
-        content: "";
+      position: absolute;
 
-        position: absolute;
+      top: 0;
+      left: -100%;
 
-        left: 0;
-        bottom: 0;
+      width: 70%;
+      height: 100%;
 
-        width: 100%;
-        height: 3px;
+      background:
+        linear-gradient(
+          100deg,
+          transparent,
+          rgba(239, 212, 119, 0.06),
+          transparent
+        );
 
-        background:
-            linear-gradient(
-                90deg,
-                var(--gold-dark),
-                var(--gold-bright),
-                var(--gold-dark)
-            );
+      transform: skewX(-18deg);
 
-        transform:
-            scaleX(0);
-
-        transform-origin:
-            left;
-
-        transition:
-            transform 0.35s ease;
-
+      transition:
+        left 0.6s ease;
     }
 
 
-    /* =========================================
-       HOVER GLOW
-       ========================================= */
-
     .btn::after {
+      content: "";
 
-        content: "";
+      position: absolute;
 
-        position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: 0;
 
-        width: 140px;
-        height: 140px;
+      height: 2px;
 
-        background:
-            radial-gradient(
-                circle,
-                rgba(210,165,60,0.10),
-                transparent 70%
-            );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-mid),
+          transparent
+        );
 
-        border-radius: 50%;
+      opacity: 0.65;
 
-        filter: blur(25px);
-
-        opacity: 0;
-
-        transition:
-            opacity 0.35s ease;
-
+      transition:
+        opacity 0.3s ease,
+        left 0.3s ease,
+        right 0.3s ease;
     }
 
 
     .btn:hover {
+      transform: translateY(-6px);
 
-        transform:
-            translateY(-8px);
+      border-color:
+        rgba(239, 212, 119, 0.72);
 
-        border-color:
-            rgba(220,175,70,0.42);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(31, 27, 15, 0.98),
+          rgba(7, 7, 5, 0.99)
+        );
 
-        box-shadow:
-
-            0 18px 35px
-            rgba(0,0,0,0.65),
-
-            0 0 25px
-            rgba(210,165,60,0.08);
-
+      box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.4),
+        0 0 28px rgba(173, 125, 32, 0.10);
     }
 
 
     .btn:hover::before {
-
-        transform:
-            scaleX(1);
-
+      left: 130%;
     }
 
 
     .btn:hover::after {
+      left: 6%;
+      right: 6%;
 
-        opacity: 1;
-
+      opacity: 1;
     }
 
 
-    /* =========================================
-       ICON CIRCLE
-       ========================================= */
+    /* =========================================================
+       BUTTON ICON
+    ========================================================= */
 
     .btn-icon {
+      width: 42px;
+      height: 42px;
 
-        position: relative;
+      border-radius: 50%;
 
-        z-index: 1;
+      border:
+        1px solid rgba(209, 166, 61, 0.45);
 
-        width: 42px;
-        height: 42px;
+      color: var(--gold-light);
 
-        display: flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        align-items: center;
-        justify-content: center;
+      background:
+        radial-gradient(
+          circle,
+          rgba(209, 166, 61, 0.13),
+          rgba(0, 0, 0, 0.15)
+        );
 
-        color:
-            var(--gold-light);
-
-        border:
-            1px solid
-            rgba(210,165,60,0.32);
-
-        border-radius: 50%;
-
-        background:
-            rgba(210,165,60,0.035);
-
-        transition:
-            transform 0.35s ease,
-            background 0.35s ease,
-            box-shadow 0.35s ease;
-
-    }
-
-
-    /* SVG icon */
-
-    .btn-icon svg {
-
-        width: 21px;
-        height: 21px;
-
-        stroke:
-            currentColor;
-
-        fill: none;
-
-        stroke-width: 1.8;
-
-        stroke-linecap: round;
-
-        stroke-linejoin: round;
-
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
 
     .btn:hover .btn-icon {
+      transform: scale(1.08);
 
-        transform:
-            scale(1.08);
+      border-color:
+        var(--gold-light);
 
-        background:
-            rgba(210,165,60,0.09);
-
-        box-shadow:
-            0 0 18px
-            rgba(210,165,60,0.13);
-
+      box-shadow:
+        0 0 18px rgba(239, 212, 119, 0.13);
     }
 
 
-    /* =========================================
-       BUTTON TEXT
-       ========================================= */
+    .btn-icon svg {
+      width: 21px;
+      height: 21px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
 
     .btn-text {
+      font-size: 0.72rem;
 
-        position: relative;
+      font-weight: 800;
 
-        z-index: 1;
+      letter-spacing: 2px;
 
-        font-size:
-            0.8rem;
-
-        font-weight: 800;
-
-        letter-spacing:
-            1.5px;
-
-        text-align: center;
-
+      text-transform: uppercase;
     }
 
-
-    /* =========================================
-       FEATURED CONSULTATION BUTTON
-       ========================================= */
 
     .btn.featured {
+      border-color:
+        rgba(239, 212, 119, 0.55);
 
-        border-color:
-            rgba(210,165,60,0.40);
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(190,145,45,0.15),
-                rgba(17,16,13,0.94)
-            );
-
+      background:
+        linear-gradient(
+          145deg,
+          rgba(34, 28, 13, 0.98),
+          rgba(7, 7, 5, 0.99)
+        );
     }
 
 
-    .btn.featured .btn-text {
-
-        color:
-            #eee0b4;
-
-    }
-
-
-    /* =========================================
+    /* =========================================================
        FOOTER
-       ========================================= */
+    ========================================================= */
 
     footer {
+      text-align: center;
 
-        margin-top: 55px;
+      padding:
+        5px 20px 35px;
 
-        text-align: center;
+      color: var(--gray);
 
-        animation:
-            fadeUp 0.8s ease 0.9s both;
+      font-size: 0.58rem;
 
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
     }
 
 
-    footer .line {
-
-        width: 100%;
-
-        height: 1px;
-
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                rgba(210,165,60,0.17),
-                transparent
-            );
-
-        margin-bottom: 20px;
-
-    }
-
-
-    footer p {
-
-        color:
-            #3e3a32;
-
-        font-size:
-            0.65rem;
-
-        font-weight: 600;
-
-        letter-spacing:
-            2px;
-
-        text-transform:
-            uppercase;
-
-    }
-
-
-    footer strong {
-
-        color:
-            var(--gold-mid);
-
-    }
-
-
-    /* =========================================
-       ANIMATIONS
-       ========================================= */
-
-    @keyframes logoAppear {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                translateY(20px)
-                scale(0.96);
-
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                translateY(0)
-                scale(1);
-
-        }
-
-    }
-
-
-    @keyframes fadeUp {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                translateY(25px);
-
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-
-        }
-
-    }
-
-
-    @keyframes expand {
-
-        from {
-
-            width: 0;
-
-            opacity: 0;
-
-        }
-
-        to {
-
-            width: 90px;
-
-            opacity: 1;
-
-        }
-
-    }
-
-
-    /* =========================================
+    /* =========================================================
        TABLET
-       ========================================= */
+    ========================================================= */
 
     @media (max-width: 850px) {
 
-        .container {
-
-            padding:
-                30px 0 50px;
-
-        }
-
-
-        .action-buttons {
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-        }
-
-
-        .biography-box {
-
-            padding: 30px;
-
-        }
-
-
-        #logo-container {
-
-            height: 220px;
-
-        }
-
-
-        /*
-         * Portrait image adjustment for tablets.
-         */
-
-        .page-background::before {
-
-            background-position:
-                center center;
-
-            transform:
-                translate3d(0,0,0)
-                scale(1.01);
-
-        }
+      .action-buttons {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
 
     }
 
 
-    /* =========================================
+    /* =========================================================
        MOBILE
-       ========================================= */
+    ========================================================= */
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
 
-        html {
+      .topbar {
+        min-height: 78px;
 
-            /*
-             * Prevent horizontal movement caused
-             * by mobile browser viewport changes.
-             */
+        padding:
+          12px 5%;
+      }
 
-            width: 100%;
 
-            overflow-x: hidden;
+      .brand-name {
+        font-size: 1.45rem;
+      }
 
-        }
 
+      .brand-subtitle {
+        font-size: 0.48rem;
 
-        body {
+        letter-spacing: 2.8px;
+      }
 
-            width: 100%;
 
-            min-height: 100vh;
+      .menu-toggle {
+        width: 43px;
+        height: 43px;
+      }
 
-            min-height: 100dvh;
 
-            overflow-x: hidden;
+      .container {
+        width: 92%;
 
-        }
+        padding:
+          32px 0 45px;
+      }
 
 
-        /* -----------------------------------------
-           MOBILE FIXED BACKGROUND
-           ----------------------------------------- */
+      .journey-header {
+        margin-bottom: 20px;
+      }
 
-        .page-background {
 
-            position: fixed;
+      .journey-tagline {
+        letter-spacing: 2px;
 
-            top: 0;
-            left: 0;
+        font-size: 0.58rem;
+      }
 
-            width: 100vw;
 
-            /*
-             * Do not use 100% here.
-             * 100dvh tracks the dynamic viewport,
-             * while the fixed element itself remains
-             * locked to the viewport.
-             */
+      .slider {
+        aspect-ratio: 4 / 5;
 
-            height: 100vh;
+        border-radius: 15px;
+      }
 
-            height: 100dvh;
 
-            min-height: 100vh;
+      .slide-content {
+        left: 6%;
+        right: 6%;
+        bottom: 9%;
+      }
 
-            overflow: hidden;
 
-            transform:
-                translate3d(0,0,0);
+      .slider-arrow {
+        width: 38px;
+        height: 38px;
 
-            contain: strict;
+        font-size: 1rem;
+      }
 
-        }
 
+      .slider-arrow.prev {
+        left: 10px;
+      }
 
-        .page-background::before {
 
-            position: absolute;
+      .slider-arrow.next {
+        right: 10px;
+      }
 
-            top: 0;
-            left: 0;
 
-            width: 100%;
-            height: 100%;
+      .navigation {
+        margin-top: 42px;
+      }
 
-            /*
-             * The original image is portrait.
-             * Cover gives the best full-screen
-             * mobile presentation.
-             */
 
-            background-size:
-                cover;
+      .navigation-title {
+        font-size: 0.61rem;
 
-            /*
-             * Keep the important central part
-             * of the portrait image visible.
-             */
+        letter-spacing: 2.5px;
 
-            background-position:
-                center center;
+        margin-bottom: 18px;
+      }
 
-            background-repeat:
-                no-repeat;
 
-            transform:
-                translate3d(0,0,0)
-                scale(1.015);
+      .action-buttons {
+        grid-template-columns: 1fr;
 
-            /*
-             * Prevent browser rendering from
-             * recalculating the image during scroll.
-             */
+        gap: 12px;
+      }
 
-            will-change:
-                transform;
 
-            backface-visibility:
-                hidden;
+      .btn {
+        min-height: 82px;
 
-            -webkit-backface-visibility:
-                hidden;
+        padding:
+          15px 20px;
 
-        }
+        flex-direction: row;
 
+        justify-content: flex-start;
 
-        .page-background::after {
+        gap: 15px;
 
-            position: absolute;
+        border-radius: 13px;
+      }
 
-            inset: 0;
 
-            /*
-             * Slightly stronger mobile overlay
-             * because the background occupies
-             * more of the screen.
-             */
+      .btn-icon {
+        width: 40px;
+        height: 40px;
+      }
 
-            background:
 
-                linear-gradient(
-                    rgba(0,0,0,0.81),
-                    rgba(0,0,0,0.81)
-                ),
+      .btn-text {
+        font-size: 0.68rem;
+      }
 
-                radial-gradient(
-                    ellipse at 50% 0%,
-                    rgba(190,145,35,0.12),
-                    transparent 45%
-                );
 
-            transform:
-                translate3d(0,0,0);
+      footer {
+        font-size: 0.48rem;
 
-        }
+        letter-spacing: 1.4px;
 
-
-        /* -----------------------------------------
-           MAIN CONTAINER
-           ----------------------------------------- */
-
-        .container {
-
-            width: 90%;
-
-            padding:
-                25px 0 40px;
-
-        }
-
-
-        /* -----------------------------------------
-           LOGO
-           ----------------------------------------- */
-
-        #logo-container {
-
-            height: 165px;
-
-        }
-
-
-        /* -----------------------------------------
-           SUBTITLE
-           ----------------------------------------- */
-
-        .subtitle {
-
-            font-size:
-                0.67rem;
-
-            letter-spacing:
-                3px;
-
-            margin-bottom:
-                30px;
-
-        }
-
-
-        /* -----------------------------------------
-           DIVIDER
-           ----------------------------------------- */
-
-        .divider {
-
-            margin-bottom:
-                30px;
-
-        }
-
-
-        /* -----------------------------------------
-           BIO
-           ----------------------------------------- */
-
-        .biography-box {
-
-            padding:
-                25px 22px;
-
-            margin-bottom:
-                35px;
-
-            /*
-             * Keep mobile cards readable
-             * over the portrait background.
-             */
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(8,8,7,0.88),
-                    rgba(17,15,10,0.84)
-                );
-
-        }
-
-
-        .biography-box p {
-
-            font-size:
-                0.88rem;
-
-            line-height:
-                1.75;
-
-        }
-
-
-        /* -----------------------------------------
-           NAVIGATION
-           ----------------------------------------- */
-
-        .navigation-title {
-
-            font-size:
-                0.61rem;
-
-            letter-spacing:
-                3px;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        /* -----------------------------------------
-           BUTTONS
-           ----------------------------------------- */
-
-        .action-buttons {
-
-            grid-template-columns:
-                1fr;
-
-            gap: 12px;
-
-        }
-
-
-        .btn {
-
-            min-height:
-                90px;
-
-            flex-direction:
-                row;
-
-            justify-content:
-                flex-start;
-
-            padding:
-                18px 25px;
-
-            /*
-             * Prevent tap highlight from
-             * creating strange visual flashes.
-             */
-
-            -webkit-tap-highlight-color:
-                transparent;
-
-        }
-
-
-        .btn-icon {
-
-            flex-shrink: 0;
-
-            width: 42px;
-            height: 42px;
-
-        }
-
-
-        .btn-text {
-
-            flex: 1;
-
-            text-align:
-                left;
-
-            padding-left:
-                3px;
-
-        }
-
-
-        /* -----------------------------------------
-           MOBILE TAP STATE
-           ----------------------------------------- */
-
-        .btn:active {
-
-            transform:
-                scale(0.985);
-
-            border-color:
-                rgba(220,175,70,0.42);
-
-        }
-
-
-        /* -----------------------------------------
-           FOOTER
-           ----------------------------------------- */
-
-        footer {
-
-            margin-top:
-                35px;
-
-        }
-
-
-        footer p {
-
-            font-size:
-                0.55rem;
-
-            line-height:
-                1.8;
-
-        }
+        line-height: 1.8;
+      }
 
     }
 
 
-    /* =========================================
+    /* =========================================================
        VERY SMALL PHONES
-       ========================================= */
+    ========================================================= */
 
     @media (max-width: 380px) {
 
-        .container {
-
-            width: 91%;
-
-        }
+      .slider {
+        aspect-ratio: 3 / 4;
+      }
 
 
-        #logo-container {
+      .journey-tagline {
+        font-size: 0.52rem;
 
-            height: 150px;
-
-        }
-
-
-        .subtitle {
-
-            font-size:
-                0.62rem;
-
-            letter-spacing:
-                2.5px;
-
-        }
-
-
-        .biography-box {
-
-            padding:
-                22px 19px;
-
-        }
-
-
-        .btn {
-
-            padding:
-                17px 20px;
-
-        }
-
-
-        .btn-text {
-
-            font-size:
-                0.74rem;
-
-            letter-spacing:
-                1.2px;
-
-        }
+        letter-spacing: 1.6px;
+      }
 
     }
 
 
-    /* =========================================
+    /* =========================================================
        REDUCED MOTION
-       ========================================= */
+    ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
 
-        html {
+      html {
+        scroll-behavior: auto;
+      }
 
-            scroll-behavior:
-                auto;
-
-        }
-
-
-        *,
-
-        *::before,
-
-        *::after {
-
-            animation-duration:
-                0.01ms !important;
-
-            animation-iteration-count:
-                1 !important;
-
-            transition-duration:
-                0.01ms !important;
-
-        }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
 
     }
 
-</style>
-
-
+  </style>
 </head>
+
 
 <body>
 
 
-<!-- =========================================
-     FIXED BACKGROUND
-     ========================================= -->
+  <!-- =======================================================
+       TOP BAR
+  ======================================================== -->
 
-<div
-    class="page-background"
-    aria-hidden="true"
-></div>
+  <header class="topbar">
 
+    <div class="brand">
 
-<div
-    class="screen-effect"
-    aria-hidden="true"
-></div>
+      <div class="brand-name">
+        Palash GOLDer
+      </div>
 
+      <div class="brand-subtitle">
+        # Fitness Influencer
+      </div>
 
-<!-- =========================================
-     MAIN CONTENT
-     ========================================= -->
-
-<main class="container">
+    </div>
 
 
-    <!-- =========================================
-         HERO
-         ========================================= -->
+    <!-- MENU BUTTON -->
 
-    <header class="hero">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+
+      <div class="menu-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </button>
 
 
-        <div id="logo-container">
+    <!-- =====================================================
+         QUICK MENU
+    ====================================================== -->
 
-            <div class="logo-glow"></div>
+    <nav
+      class="quick-menu"
+      id="quickMenu"
+      aria-label="Quick navigation"
+    >
+
+      <!-- CONSULTATION -->
+
+      <a
+        href="consultation.html"
+        class="quick-link"
+      >
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <circle cx="9" cy="8" r="3"></circle>
+
+            <path d="M3.5 19c.7-3.2 2.5-5 5.5-5s4.8 1.8 5.5 5"></path>
+
+            <path d="M15 8.5h5.5v5H18l-2.5 2v-2H15z"></path>
+
+          </svg>
 
         </div>
 
+        <div class="quick-text">
 
-        <h2 class="subtitle">
+          <strong>CONSULTATION</strong>
 
-            Fitness Influencer
-
-        </h2>
-
-
-        <div class="divider"></div>
-
-
-    </header>
-
-
-
-    <!-- =========================================
-         BIOGRAPHY
-         ========================================= -->
-
-    <section class="biography-box">
-
-
-        <div class="bio-label">
-
-            The Journey
+          <span>Personal guidance</span>
 
         </div>
 
+      </a>
 
-        <p>
 
-            [Insert your biography here. Talk about your fitness journey,
-            your dedication to building muscle, your goals, your lifestyle,
-            and what inspires you to push your limits every day.]
+      <!-- TRAINING -->
 
+      <a
+        href="training.html"
+        class="quick-link"
+      >
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path d="M6 8v8"></path>
+
+            <path d="M3.5 10v4"></path>
+
+            <path d="M18 8v8"></path>
+
+            <path d="M20.5 10v4"></path>
+
+            <path d="M6 12h12"></path>
+
+          </svg>
+
+        </div>
+
+        <div class="quick-text">
+
+          <strong>TRAINING</strong>
+
+          <span>Personal training</span>
+
+        </div>
+
+      </a>
+
+
+      <!-- GYM -->
+
+      <a
+        href="gym.html"
+        class="quick-link"
+      >
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"></path>
+
+            <circle cx="12" cy="9" r="2.3"></circle>
+
+          </svg>
+
+        </div>
+
+        <div class="quick-text">
+
+          <strong>GYM</strong>
+
+          <span>Training location</span>
+
+        </div>
+
+      </a>
+
+
+      <!-- CONTACT -->
+
+      <a
+        href="contact.html"
+        class="quick-link"
+      >
+
+        <div class="quick-icon">
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path d="M6.5 3.5h3l1.4 4-2 1.6c1 2.2 2.8 4 5 5l1.6-2 4 1.4v3c0 1-.8 1.8-1.8 1.8C11.3 18.3 5.7 12.7 5.7 6.3c0-1 .8-1.8 1.8-1.8z"></path>
+
+          </svg>
+
+        </div>
+
+        <div class="quick-text">
+
+          <strong>CONTACT</strong>
+
+          <span>Get in touch</span>
+
+        </div>
+
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
+  <main class="container">
+
+
+    <!-- =====================================================
+         JOURNEY
+    ====================================================== -->
+
+    <section class="journey-section">
+
+      <div class="journey-header">
+
+        <h1 class="kicker">
+          The Journey
+        </h1>
+
+        <p class="journey-tagline">
+          Bahubali of Indian Bodybuilding
         </p>
 
+      </div>
+
+
+
+      <!-- ===================================================
+           SLIDER
+      ==================================================== -->
+
+      <div
+        class="slider"
+        id="journeySlider"
+      >
+
+        <div class="slides">
+
+
+          <!-- =================================================
+               SLIDE 1
+          ================================================== -->
+
+          <div class="slide active">
+
+            <img
+              src="journey1.jpg"
+              alt="Palash GOLDer journey"
+            >
+
+            <div class="slide-content">
+
+              <h2>
+                The Beginning
+              </h2>
+
+              <p>
+                Every great transformation begins with a decision
+                to become stronger than yesterday.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SLIDE 2
+          ================================================== -->
+
+          <div class="slide">
+
+            <img
+              src="journey2.jpg"
+              alt="Palash GOLDer training"
+            >
+
+            <div class="slide-content">
+
+              <h2>
+                Discipline
+              </h2>
+
+              <p>
+                Progress is built through consistency, discipline
+                and the willingness to push beyond your limits.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SLIDE 3
+          ================================================== -->
+
+          <div class="slide">
+
+            <img
+              src="journey3.jpg"
+              alt="Palash GOLDer bodybuilding"
+            >
+
+            <div class="slide-content">
+
+              <h2>
+                The Grind
+              </h2>
+
+              <p>
+                The work nobody sees is what creates the results
+                everybody notices.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SLIDE 4
+          ================================================== -->
+
+          <div class="slide">
+
+            <img
+              src="journey4.jpg"
+              alt="Palash GOLDer fitness journey"
+            >
+
+            <div class="slide-content">
+
+              <h2>
+                Transformation
+              </h2>
+
+              <p>
+                Strength is not just built in the gym. It is built
+                through patience, dedication and relentless effort.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               SLIDE 5
+          ================================================== -->
+
+          <div class="slide">
+
+            <img
+              src="journey5.jpg"
+              alt="Palash GOLDer physique"
+            >
+
+            <div class="slide-content">
+
+              <h2>
+                Keep Going
+              </h2>
+
+              <p>
+                The journey never truly ends. There is always
+                another level to reach.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PREVIOUS -->
+
+        <button
+          class="slider-arrow prev"
+          id="prevSlide"
+          aria-label="Previous slide"
+        >
+          ‹
+        </button>
+
+
+        <!-- NEXT -->
+
+        <button
+          class="slider-arrow next"
+          id="nextSlide"
+          aria-label="Next slide"
+        >
+          ›
+        </button>
+
+
+        <!-- DOTS -->
+
+        <div
+          class="slider-dots"
+          id="sliderDots"
+        >
+
+          <button
+            class="slider-dot active"
+            data-slide="0"
+            aria-label="Go to slide 1"
+          ></button>
+
+          <button
+            class="slider-dot"
+            data-slide="1"
+            aria-label="Go to slide 2"
+          ></button>
+
+          <button
+            class="slider-dot"
+            data-slide="2"
+            aria-label="Go to slide 3"
+          ></button>
+
+          <button
+            class="slider-dot"
+            data-slide="3"
+            aria-label="Go to slide 4"
+          ></button>
+
+          <button
+            class="slider-dot"
+            data-slide="4"
+            aria-label="Go to slide 5"
+          ></button>
+
+        </div>
+
+      </div>
 
     </section>
 
 
 
-    <!-- =========================================
+    <!-- =======================================================
          NAVIGATION
-         ========================================= -->
+    ======================================================== -->
 
-    <div class="navigation-title">
+    <section class="navigation">
 
+      <div class="navigation-title">
         Explore • Train • Transform
-
-    </div>
-
-
-    <nav
-        class="action-buttons"
-        aria-label="Main navigation"
-    >
+      </div>
 
 
-        <!-- =====================================
-             CONSULTATION
-             Person + Speech Bubble
-             ===================================== -->
+      <div class="action-buttons">
+
+
+        <!-- CONSULTATION -->
 
         <a
-            href="consultation.html"
-            class="btn featured"
+          href="consultation.html"
+          class="btn featured"
         >
 
-            <span class="btn-icon">
+          <div class="btn-icon">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
 
-                    <!-- Person -->
+              <circle cx="9" cy="8" r="3"></circle>
 
-                    <circle
-                        cx="9"
-                        cy="8"
-                        r="3"
-                    />
+              <path d="M3.5 19c.7-3.2 2.5-5 5.5-5s4.8 1.8 5.5 5"></path>
 
-                    <path
-                        d="M3.5 19c.7-3.1 2.5-5 5.5-5s4.8 1.9 5.5 5"
-                    />
+              <path d="M15 8.5h5.5v5H18l-2.5 2v-2H15z"></path>
 
-                    <!-- Speech bubble -->
+            </svg>
 
-                    <path
-                        d="M14.5 5.5h5a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2.2l-2.3 2v-2h-.5a2 2 0 0 1-2-2v-4"
-                    />
+          </div>
 
-                </svg>
-
-            </span>
-
-
-            <span class="btn-text">
-
-                CONSULTATION
-
-            </span>
+          <div class="btn-text">
+            Consultation
+          </div>
 
         </a>
 
 
 
-        <!-- =====================================
-             TRAINING
-             Dumbbell
-             ===================================== -->
+        <!-- TRAINING -->
 
         <a
-            href="training.html"
-            class="btn"
+          href="training.html"
+          class="btn"
         >
 
-            <span class="btn-icon">
+          <div class="btn-icon">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
 
-                    <!-- Bar -->
+              <path d="M6 8v8"></path>
 
-                    <path
-                        d="M5 12h14"
-                    />
+              <path d="M3.5 10v4"></path>
 
-                    <!-- Left weights -->
+              <path d="M18 8v8"></path>
 
-                    <path
-                        d="M3 9v6"
-                    />
+              <path d="M20.5 10v4"></path>
 
-                    <path
-                        d="M5 8v8"
-                    />
+              <path d="M6 12h12"></path>
 
-                    <!-- Right weights -->
+            </svg>
 
-                    <path
-                        d="M19 8v8"
-                    />
+          </div>
 
-                    <path
-                        d="M21 9v6"
-                    />
-
-                </svg>
-
-            </span>
-
-
-            <span class="btn-text">
-
-                TRAINING
-
-            </span>
+          <div class="btn-text">
+            Training
+          </div>
 
         </a>
 
 
 
-        <!-- =====================================
-             GYM
-             Location Pin
-             ===================================== -->
+        <!-- GYM -->
 
         <a
-            href="gym.html"
-            class="btn"
+          href="gym.html"
+          class="btn"
         >
 
-            <span class="btn-icon">
+          <div class="btn-icon">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
 
-                    <path
-                        d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
-                    />
+              <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"></path>
 
-                    <circle
-                        cx="12"
-                        cy="10"
-                        r="2.5"
-                    />
+              <circle cx="12" cy="9" r="2.3"></circle>
 
-                </svg>
+            </svg>
 
-            </span>
+          </div>
 
-
-            <span class="btn-text">
-
-                GYM
-
-            </span>
+          <div class="btn-text">
+            Gym
+          </div>
 
         </a>
 
 
 
-        <!-- =====================================
-             EVENTS
-             Calendar + Event Symbol
-             ===================================== -->
+        <!-- CONTACT -->
 
         <a
-            href="events.html"
-            class="btn"
+          href="contact.html"
+          class="btn"
         >
 
-            <span class="btn-icon">
+          <div class="btn-icon">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
 
-                    <!-- Calendar -->
+              <path d="M6.5 3.5h3l1.4 4-2 1.6c1 2.2 2.8 4 5 5l1.6-2 4 1.4v3c0 1-.8 1.8-1.8 1.8C11.3 18.3 5.7 12.7 5.7 6.3c0-1 .8-1.8 1.8-1.8z"></path>
 
-                    <rect
-                        x="3"
-                        y="5"
-                        width="18"
-                        height="16"
-                        rx="2"
-                    />
+            </svg>
 
-                    <path
-                        d="M7 3v4"
-                    />
+          </div>
 
-                    <path
-                        d="M17 3v4"
-                    />
-
-                    <path
-                        d="M3 10h18"
-                    />
-
-                    <!-- Event star -->
-
-                    <path
-                        d="m12 13 .8 1.6 1.7.25-1.25 1.2.3 1.7-1.55-.8-1.55.8.3-1.7-1.25-1.2 1.7-.25L12 13Z"
-                    />
-
-                </svg>
-
-            </span>
-
-
-            <span class="btn-text">
-
-                EVENTS
-
-            </span>
+          <div class="btn-text">
+            Contact
+          </div>
 
         </a>
 
 
-    </nav>
+      </div>
+
+    </section>
+
+  </main>
 
 
 
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
 
-    <footer>
+  <footer>
 
+    © 2026 PALASH GOLDER • TRAIN HARD • STAY CONSISTENT
 
-        <div class="line"></div>
-
-
-        <p>
-
-            © 2026
-
-            <strong>
-
-                PALASH GOLDER
-
-            </strong>
-
-            • TRAIN HARD • STAY CONSISTENT
-
-        </p>
-
-
-    </footer>
-
-
-</main>
+  </footer>
 
 
 
-<!-- =========================================
-     THREE.JS IMPORT MAP
-     ========================================= -->
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
 
-<script type="importmap">
+  <script>
 
-{
-    "imports": {
+    /* =======================================================
+       MENU
+    ======================================================== */
 
-        "three":
-            "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+    const menuToggle =
+      document.getElementById("menuToggle");
 
-        "three/addons/":
-            "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
-
-    }
-}
-
-</script>
+    const quickMenu =
+      document.getElementById("quickMenu");
 
 
+    menuToggle.addEventListener(
+      "click",
+      function (event) {
 
-<!-- =========================================
-     THREE.JS LOGO
-     ========================================= -->
+        event.stopPropagation();
 
-<script type="module">
+        const isOpen =
+          quickMenu.classList.toggle("open");
 
-
-    import * as THREE
-        from 'three';
-
-
-    import { FontLoader }
-        from 'three/addons/loaders/FontLoader.js';
-
-
-    import { TextGeometry }
-        from 'three/addons/geometries/TextGeometry.js';
-
-
-    import { RoomEnvironment }
-        from 'three/addons/environments/RoomEnvironment.js';
-
-
-
-    /* =========================================
-       CONTAINER
-       ========================================= */
-
-    const container =
-        document.getElementById(
-            "logo-container"
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
         );
 
-
-
-    /* =========================================
-       SCENE
-       ========================================= */
-
-    const scene =
-        new THREE.Scene();
-
-
-
-    /* =========================================
-       CAMERA
-       ========================================= */
-
-    const camera =
-        new THREE.PerspectiveCamera(
-
-            32,
-
-            container.clientWidth /
-            container.clientHeight,
-
-            0.1,
-
-            100
-
-        );
-
-
-    camera.position.set(
-
-        0,
-        0,
-        13
-
+      }
     );
 
 
-
-    /* =========================================
-       RENDERER
-       ========================================= */
-
-    const renderer =
-        new THREE.WebGLRenderer({
-
-            antialias: true,
-
-            alpha: true,
-
-            powerPreference:
-                "high-performance"
-
-        });
-
-
-    renderer.setPixelRatio(
-
-        Math.min(
-
-            window.devicePixelRatio,
-
-            2
-
-        )
-
-    );
-
-
-    renderer.setSize(
-
-        container.clientWidth,
-
-        container.clientHeight
-
-    );
-
-
-    renderer.outputColorSpace =
-        THREE.SRGBColorSpace;
-
-
-    renderer.toneMapping =
-        THREE.ACESFilmicToneMapping;
-
-
-    renderer.toneMappingExposure =
-        1.25;
-
-
-    renderer.shadowMap.enabled =
-        true;
-
-
-    renderer.shadowMap.type =
-        THREE.PCFSoftShadowMap;
-
-
-    container.appendChild(
-
-        renderer.domElement
-
-    );
-
-
-
-    /* =========================================
-       ENVIRONMENT
-       ========================================= */
-
-    const environment =
-        new RoomEnvironment(
-            renderer
-        );
-
-
-    const pmrem =
-        new THREE.PMREMGenerator(
-            renderer
-        );
-
-
-    scene.environment =
-        pmrem.fromScene(
-
-            environment,
-
-            0.04
-
-        ).texture;
-
-
-    environment.dispose();
-
-    pmrem.dispose();
-
-
-
-    /* =========================================
-       LIGHTS
-       ========================================= */
-
-    const keyLight =
-        new THREE.DirectionalLight(
-
-            0xfff1bd,
-
-            5
-
-        );
-
-
-    keyLight.position.set(
-
-        -5,
-        6,
-        8
-
-    );
-
-
-    scene.add(
-
-        keyLight
-
-    );
-
-
-    const goldLight =
-        new THREE.DirectionalLight(
-
-            0xe0ad43,
-
-            4
-
-        );
-
-
-    goldLight.position.set(
-
-        5,
-        3,
-        5
-
-    );
-
-
-    scene.add(
-
-        goldLight
-
-    );
-
-
-    const topLight =
-        new THREE.PointLight(
-
-            0xffe5a0,
-
-            7,
-
-            25
-
-        );
-
-
-    topLight.position.set(
-
-        0,
-        5,
-        6
-
-    );
-
-
-    scene.add(
-
-        topLight
-
-    );
-
-
-    const frontLight =
-        new THREE.PointLight(
-
-            0xffd36b,
-
-            3,
-
-            20
-
-        );
-
-
-    frontLight.position.set(
-
-        0,
-        0,
-        9
-
-    );
-
-
-    scene.add(
-
-        frontLight
-
-    );
-
-
-
-    /* =========================================
-       GOLD MATERIAL
-       ========================================= */
-
-    const goldMaterial =
-        new THREE.MeshPhysicalMaterial({
-
-            color:
-                new THREE.Color(
-                    0xC9962C
-                ),
-
-            metalness: 1,
-
-            roughness: 0.13,
-
-            clearcoat: 1,
-
-            clearcoatRoughness: 0.06,
-
-            specularIntensity: 1,
-
-            specularColor:
-                new THREE.Color(
-                    0xffe9a3
-                )
-
-        });
-
-
-
-    /* =========================================
-       LOAD FONT
-       ========================================= */
-
-    const fontLoader =
-        new FontLoader();
-
-
-    fontLoader.load(
-
-        "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/fonts/helvetiker_bold.typeface.json",
-
-        function(font) {
-
-
-            /* =================================
-               CREATE TEXT
-               ================================= */
-
-            const geometry =
-                new TextGeometry(
-
-                    "Palash GOLDer",
-
-                    {
-
-                        font: font,
-
-                        size: 1.55,
-
-                        depth: 0.45,
-
-                        curveSegments: 16,
-
-                        bevelEnabled: true,
-
-                        bevelThickness: 0.09,
-
-                        bevelSize: 0.055,
-
-                        bevelOffset: 0,
-
-                        bevelSegments: 6
-
-                    }
-
-                );
-
-
-            /* =================================
-               CENTER TEXT
-               ================================= */
-
-            geometry.computeBoundingBox();
-
-
-            const bounds =
-                geometry.boundingBox;
-
-
-            const width =
-                bounds.max.x -
-                bounds.min.x;
-
-
-            const height =
-                bounds.max.y -
-                bounds.min.y;
-
-
-            geometry.translate(
-
-                -width / 2,
-
-                -height / 2,
-
-                0
-
-            );
-
-
-            /* =================================
-               CREATE LOGO
-               ================================= */
-
-            const logo =
-                new THREE.Mesh(
-
-                    geometry,
-
-                    goldMaterial
-
-                );
-
-
-            logo.castShadow = true;
-
-            logo.receiveShadow = true;
-
-
-            logo.rotation.x =
-                THREE.MathUtils.degToRad(
-                    -4
-                );
-
-
-            logo.rotation.y =
-                THREE.MathUtils.degToRad(
-                    -3
-                );
-
-
-            logo.scale.set(
-
-                0.001,
-                0.001,
-                0.001
-
-            );
-
-
-            scene.add(
-
-                logo
-
-            );
-
-
-
-            /* =================================
-               SOFT FLOOR SHADOW
-               ================================= */
-
-            const shadowGeometry =
-                new THREE.PlaneGeometry(
-
-                    9,
-                    1.8
-
-                );
-
-
-            const shadowMaterial =
-                new THREE.MeshBasicMaterial({
-
-                    color: 0x000000,
-
-                    transparent: true,
-
-                    opacity: 0.45
-
-                });
-
-
-            const shadow =
-                new THREE.Mesh(
-
-                    shadowGeometry,
-
-                    shadowMaterial
-
-                );
-
-
-            shadow.rotation.x =
-                -Math.PI / 2;
-
-
-            shadow.position.set(
-
-                0,
-                -1.05,
-                -0.5
-
-            );
-
-
-            shadow.scale.set(
-
-                1,
-                0.45,
-                1
-
-            );
-
-
-            scene.add(
-
-                shadow
-
-            );
-
-
-
-            /* =================================
-               MOUSE
-               ================================= */
-
-            let mouseX = 0;
-
-            let mouseY = 0;
-
-            let smoothX = 0;
-
-            let smoothY = 0;
-
-
-
-            /* =================================
-               MOUSE MOVEMENT
-               ================================= */
-
-            window.addEventListener(
-
-                "mousemove",
-
-                function(event) {
-
-                    mouseX =
-                        (
-                            event.clientX /
-                            window.innerWidth
-                        ) * 2 - 1;
-
-
-                    mouseY =
-                        (
-                            event.clientY /
-                            window.innerHeight
-                        ) * 2 - 1;
-
-                }
-
-            );
-
-
-
-            /* =================================
-               TOUCH
-               ================================= */
-
-            window.addEventListener(
-
-                "touchmove",
-
-                function(event) {
-
-                    if (
-
-                        event.touches &&
-                        event.touches.length
-
-                    ) {
-
-                        mouseX =
-                            (
-                                event.touches[0].clientX /
-                                window.innerWidth
-                            ) * 2 - 1;
-
-
-                        mouseY =
-                            (
-                                event.touches[0].clientY /
-                                window.innerHeight
-                            ) * 2 - 1;
-
-                    }
-
-                },
-
-                {
-                    passive: true
-                }
-
-            );
-
-
-
-            /* =================================
-               ANIMATION
-               ================================= */
-
-            const startTime =
-                performance.now();
-
-
-            function animate(time) {
-
-                requestAnimationFrame(
-                    animate
-                );
-
-
-                /* -----------------------------
-                   Smooth mouse
-                   ----------------------------- */
-
-                smoothX += (
-
-                    mouseX * 0.35 -
-                    smoothX
-
-                ) * 0.045;
-
-
-                smoothY += (
-
-                    mouseY * 0.18 -
-                    smoothY
-
-                ) * 0.045;
-
-
-
-                /* -----------------------------
-                   3D rotation
-                   ----------------------------- */
-
-                logo.rotation.y =
-
-                    THREE.MathUtils.degToRad(
-                        -3
-                    )
-
-                    +
-
-                    smoothX * 0.20;
-
-
-                logo.rotation.x =
-
-                    THREE.MathUtils.degToRad(
-                        -4
-                    )
-
-                    -
-
-                    smoothY * 0.10;
-
-
-
-                /* -----------------------------
-                   Floating effect
-                   ----------------------------- */
-
-                logo.position.y =
-
-                    Math.sin(
-                        time * 0.0012
-                    ) * 0.035;
-
-
-
-                /* -----------------------------
-                   Intro animation
-                   ----------------------------- */
-
-                const elapsed =
-                    time - startTime;
-
-
-                if (
-
-                    elapsed < 1200
-
-                ) {
-
-                    const progress =
-                        Math.min(
-
-                            elapsed / 1200,
-
-                            1
-
-                        );
-
-
-                    const eased =
-
-                        1 -
-
-                        Math.pow(
-
-                            1 - progress,
-
-                            3
-
-                        );
-
-
-                    const scale =
-
-                        0.001 +
-
-                        eased * 0.999;
-
-
-                    logo.scale.set(
-
-                        scale,
-                        scale,
-                        scale
-
-                    );
-
-                }
-
-
-
-                /* -----------------------------
-                   Render
-                   ----------------------------- */
-
-                renderer.render(
-
-                    scene,
-
-                    camera
-
-                );
-
-            }
-
-
-            animate(
-
-                performance.now()
-
-            );
-
-
-
-            /* =================================
-               RESIZE
-               ================================= */
-
-            function resize() {
-
-                const width =
-                    container.clientWidth;
-
-
-                const height =
-                    container.clientHeight;
-
-
-                camera.aspect =
-                    width / height;
-
-
-                camera.updateProjectionMatrix();
-
-
-                renderer.setSize(
-
-                    width,
-
-                    height
-
-                );
-
-            }
-
-
-            window.addEventListener(
-
-                "resize",
-
-                resize
-
-            );
-
-
-            /*
-             * visualViewport resize can be
-             * triggered by mobile browser UI.
-             *
-             * Only the Three.js canvas needs
-             * to respond to it. The background
-             * remains a separate fixed layer.
-             */
-
-            if (window.visualViewport) {
-
-                window.visualViewport.addEventListener(
-
-                    "resize",
-
-                    resize
-
-                );
-
-            }
-
-
-            resize();
-
-        },
-
-
-        undefined,
-
-
-        function(error) {
-
-            console.error(
-
-                "3D font failed to load.",
-
-                error
-
-            );
+    /* Close menu when clicking outside */
+
+    document.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          !quickMenu.contains(event.target) &&
+          !menuToggle.contains(event.target)
+        ) {
+
+          quickMenu.classList.remove("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
         }
 
+      }
     );
 
-</script>
 
+    /* Close menu with Escape */
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (event.key === "Escape") {
+
+          quickMenu.classList.remove("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      }
+    );
+
+
+
+    /* =======================================================
+       JOURNEY SLIDER
+    ======================================================== */
+
+    const slides =
+      document.querySelectorAll(".slide");
+
+    const dots =
+      document.querySelectorAll(".slider-dot");
+
+    const slider =
+      document.getElementById("journeySlider");
+
+    const prevButton =
+      document.getElementById("prevSlide");
+
+    const nextButton =
+      document.getElementById("nextSlide");
+
+
+    let currentSlide = 0;
+
+    let slideshowTimer = null;
+
+    const SLIDE_DURATION = 4000;
+
+
+
+    /* =======================================================
+       SHOW SLIDE
+    ======================================================== */
+
+    function showSlide(index) {
+
+      if (index >= slides.length) {
+        index = 0;
+      }
+
+      if (index < 0) {
+        index = slides.length - 1;
+      }
+
+
+      slides.forEach(
+        function (slide, i) {
+
+          slide.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
+      );
+
+
+      dots.forEach(
+        function (dot, i) {
+
+          dot.classList.toggle(
+            "active",
+            i === index
+          );
+
+        }
+      );
+
+
+      currentSlide = index;
+
+    }
+
+
+
+    /* =======================================================
+       NEXT SLIDE
+    ======================================================== */
+
+    function nextSlide() {
+
+      showSlide(
+        currentSlide + 1
+      );
+
+    }
+
+
+
+    /* =======================================================
+       PREVIOUS SLIDE
+    ======================================================== */
+
+    function previousSlide() {
+
+      showSlide(
+        currentSlide - 1
+      );
+
+    }
+
+
+
+    /* =======================================================
+       ARROW BUTTONS
+    ======================================================== */
+
+    nextButton.addEventListener(
+      "click",
+      function () {
+
+        nextSlide();
+
+        restartSlideshow();
+
+      }
+    );
+
+
+    prevButton.addEventListener(
+      "click",
+      function () {
+
+        previousSlide();
+
+        restartSlideshow();
+
+      }
+    );
+
+
+
+    /* =======================================================
+       DOT NAVIGATION
+    ======================================================== */
+
+    dots.forEach(
+      function (dot) {
+
+        dot.addEventListener(
+          "click",
+          function () {
+
+            const slideIndex =
+              Number(dot.dataset.slide);
+
+            showSlide(slideIndex);
+
+            restartSlideshow();
+
+          }
+        );
+
+      }
+    );
+
+
+
+    /* =======================================================
+       START SLIDESHOW
+    ======================================================== */
+
+    function startSlideshow() {
+
+      clearInterval(
+        slideshowTimer
+      );
+
+      slideshowTimer =
+        setInterval(
+          nextSlide,
+          SLIDE_DURATION
+        );
+
+    }
+
+
+
+    /* =======================================================
+       RESTART SLIDESHOW
+    ======================================================== */
+
+    function restartSlideshow() {
+
+      startSlideshow();
+
+    }
+
+
+
+    /* =======================================================
+       PAUSE ON HOVER
+    ======================================================== */
+
+    slider.addEventListener(
+      "mouseenter",
+      function () {
+
+        clearInterval(
+          slideshowTimer
+        );
+
+      }
+    );
+
+
+    slider.addEventListener(
+      "mouseleave",
+      function () {
+
+        startSlideshow();
+
+      }
+    );
+
+
+
+    /* =======================================================
+       TOUCH SWIPE
+    ======================================================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    slider.addEventListener(
+      "touchstart",
+      function (event) {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+      },
+      { passive: true }
+    );
+
+
+    slider.addEventListener(
+      "touchend",
+      function (event) {
+
+        touchEndX =
+          event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+      },
+      { passive: true }
+    );
+
+
+    function handleSwipe() {
+
+      const swipeDistance =
+        touchEndX - touchStartX;
+
+
+      if (
+        Math.abs(swipeDistance) < 45
+      ) {
+        return;
+      }
+
+
+      if (swipeDistance < 0) {
+
+        nextSlide();
+
+      } else {
+
+        previousSlide();
+
+      }
+
+
+      restartSlideshow();
+
+    }
+
+
+
+    /* =======================================================
+       INITIALIZE
+    ======================================================== */
+
+    showSlide(0);
+
+    startSlideshow();
+
+  </script>
 
 </body>
-
 </html>
