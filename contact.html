@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palash GOLDer | Contact</title>
+
+    <meta
+        name="description"
+        content="Contact Palash GOLDer for fitness, training, collaborations, events and enquiries."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --black: #020202;
+            --dark: #080806;
+            --dark-2: #11100d;
+
+            --gold-dark: #513400;
+            --gold-deep: #76500b;
+            --gold: #ad7d20;
+            --gold-mid: #d1a63d;
+            --gold-light: #efd477;
+            --gold-bright: #fff3b0;
+
+            --white: #f4f1e8;
+            --gray: #77736a;
+            --light-gray: #d0cbc0;
+
+            --border: rgba(210, 165, 60, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Montserrat", sans-serif;
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(173, 125, 32, 0.13),
+                    transparent 34%
+                ),
+                radial-gradient(
+                    circle at 15% 45%,
+                    rgba(173, 125, 32, 0.045),
+                    transparent 30%
+                ),
+                var(--black);
+
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 1px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(239, 212, 119, 0.55),
+                transparent
+            );
+
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 600px;
+            height: 600px;
+
+            top: -300px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: rgba(173, 125, 32, 0.08);
+
+            filter: blur(100px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(980px, 92%);
+            margin: 0 auto;
+            padding: 45px 0 55px;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .brand-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .brand-line span {
+            width: 55px;
+            height: 1px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--gold-mid)
+            );
+        }
+
+        .brand-line span:last-child {
+            background: linear-gradient(
+                90deg,
+                var(--gold-mid),
+                transparent
+            );
+        }
+
+        .brand-line p {
+            color: var(--gold-light);
+
+            font-size: 0.65rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            white-space: nowrap;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+            line-height: 0.95;
+
+            background: linear-gradient(
+                135deg,
+                var(--gold-dark) 0%,
+                var(--gold-mid) 24%,
+                var(--gold-bright) 48%,
+                var(--gold) 68%,
+                var(--gold-dark) 100%
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            text-shadow:
+                0 0 35px rgba(210, 165, 60, 0.12);
+        }
+
+        .header .subtitle {
+            margin-top: 18px;
+
+            color: var(--gray);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        .contact-section {
+            margin-bottom: 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            color: var(--white);
+
+            font-size: 0.85rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .section-heading p {
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 0.68rem;
+
+            letter-spacing: 1px;
+        }
+
+        /*
+         * TOP ROW:
+         * EMAIL + CONTACT
+         */
+
+        .contact-top {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-bottom: 14px;
+        }
+
+        .contact-card {
+            position: relative;
+
+            min-height: 145px;
+
+            padding: 25px 20px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(24, 22, 17, 0.94),
+                    rgba(9, 9, 7, 0.97)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        /*
+         * ADDRESS CARD
+         * Bigger and full width
+         */
+
+        .address-card {
+            min-height: 165px;
+        }
+
+        .contact-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--gold-light),
+                transparent
+            );
+
+            transform: scaleX(0);
+
+            transform-origin: center;
+
+            transition: transform 0.35s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+
+            border-color:
+                rgba(220, 175, 70, 0.42);
+
+            box-shadow:
+                0 18px 35px rgba(0, 0, 0, 0.65),
+                0 0 25px rgba(210, 165, 60, 0.07);
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            color: var(--gold-light);
+
+            border:
+                1px solid rgba(210, 165, 60, 0.3);
+
+            border-radius: 50%;
+
+            background:
+                rgba(210, 165, 60, 0.035);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.08);
+
+            background:
+                rgba(210, 165, 60, 0.08);
+
+            box-shadow:
+                0 0 18px rgba(210, 165, 60, 0.12);
+        }
+
+        .contact-icon svg {
+            width: 21px;
+            height: 21px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.7;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-label {
+            color: var(--gold-light);
+
+            font-size: 0.63rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .contact-value {
+            color: var(--light-gray);
+
+            font-size: 0.75rem;
+
+            line-height: 1.6;
+
+            word-break: break-word;
+        }
+
+        .address-card .contact-value {
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           SOCIAL BUTTONS
+        ========================= */
+
+        .social-section {
+            margin: 28px 0 45px;
+        }
+
+        .social-buttons {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+        .social-button {
+            position: relative;
+
+            min-height: 65px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: var(--white);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(23, 21, 17, 0.92),
+                    rgba(9, 9, 7, 0.96)
+                );
+
+            border:
+                1px solid rgba(210, 165, 60, 0.17);
+
+            border-radius: 9px;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .social-button::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                var(--gold-dark),
+                var(--gold-bright),
+                var(--gold-dark)
+            );
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: transform 0.35s ease;
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(220, 175, 70, 0.42);
+
+            box-shadow:
+                0 15px 30px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(210, 165, 60, 0.07);
+        }
+
+        .social-button:hover::after {
+            transform: scaleX(1);
+        }
+
+        .social-icon {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold-light);
+        }
+
+        .social-icon svg {
+            width: 22px;
+            height: 22px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.7;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .social-button.facebook .social-icon svg {
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .social-text {
+            font-size: 0.7rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           WHATSAPP ENQUIRY
+        ========================= */
+
+        .enquiry-section {
+            position: relative;
+
+            padding: 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(22, 20, 15, 0.96),
+                    rgba(7, 7, 6, 0.98)
+                );
+
+            border:
+                1px solid rgba(210, 165, 60, 0.24);
+
+            border-radius: 13px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.45),
+                inset 0 0 50px rgba(210, 165, 60, 0.018);
+        }
+
+        .enquiry-section::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            right: -170px;
+            top: -170px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(210, 165, 60, 0.08),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .enquiry-top {
+            position: relative;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .enquiry-top .small-title {
+            color: var(--gold-light);
+
+            font-size: 0.62rem;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .enquiry-top h2 {
+            font-size: clamp(1.5rem, 4vw, 2.3rem);
+
+            font-weight: 900;
+
+            color: var(--white);
+
+            letter-spacing: -0.5px;
+        }
+
+        .enquiry-top h2 span {
+            color: var(--gold-light);
+        }
+
+        .enquiry-top p {
+            max-width: 580px;
+
+            margin: 12px auto 0;
+
+            color: var(--gray);
+
+            font-size: 0.72rem;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .enquiry-form {
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: var(--gold-light);
+
+            font-size: 0.61rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            color: var(--white);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 0.73rem;
+
+            background:
+                rgba(0, 0, 0, 0.52);
+
+            border:
+                1px solid rgba(210, 165, 60, 0.15);
+
+            border-radius: 7px;
+
+            outline: none;
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #5f5c55;
+        }
+
+        .form-group select {
+            color: var(--light-gray);
+        }
+
+        .form-group select option {
+            background: #111;
+            color: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color:
+                rgba(220, 175, 70, 0.55);
+
+            background:
+                rgba(10, 10, 8, 0.85);
+
+            box-shadow:
+                0 0 0 3px rgba(210, 165, 60, 0.045),
+                0 0 18px rgba(210, 165, 60, 0.05);
+        }
+
+        .form-group textarea {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        /* =========================
+           WHATSAPP BUTTON
+        ========================= */
+
+        .whatsapp-button {
+            grid-column: 1 / -1;
+
+            margin-top: 7px;
+
+            min-height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            border:
+                1px solid rgba(210, 165, 60, 0.45);
+
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(173, 125, 32, 0.22),
+                    rgba(81, 52, 0, 0.28)
+                );
+
+            color: var(--gold-bright);
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 0.72rem;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+
+            border-color: var(--gold-light);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(173, 125, 32, 0.30),
+                    rgba(81, 52, 0, 0.38)
+                );
+
+            box-shadow:
+                0 12px 28px rgba(0, 0, 0, 0.6),
+                0 0 25px rgba(210, 165, 60, 0.10);
+        }
+
+        .whatsapp-button:active {
+            transform: translateY(-1px);
+        }
+
+        .whatsapp-icon {
+            width: 22px;
+            height: 22px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-icon svg {
+            width: 22px;
+            height: 22px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.7;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =========================
+           BOTTOM NAVIGATION
+        ========================= */
+
+        .bottom-navigation {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .bottom-button {
+            min-height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            color: var(--light-gray);
+
+            background:
+                rgba(12, 12, 10, 0.85);
+
+            border:
+                1px solid rgba(210, 165, 60, 0.12);
+
+            border-radius: 8px;
+
+            font-size: 0.68rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .bottom-button:hover {
+            transform: translateY(-4px);
+
+            color: var(--gold-light);
+
+            border-color:
+                rgba(210, 165, 60, 0.38);
+
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.55);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            margin-top: 50px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(210, 165, 60, 0.08);
+
+            color: #55524b;
+
+            font-size: 0.58rem;
+
+            font-weight: 600;
+
+            letter-spacing: 1.7px;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            .page {
+                padding-top: 35px;
+            }
+
+            .contact-top {
+                grid-template-columns: 1fr;
+            }
+
+            .address-card {
+                min-height: 145px;
+            }
+
+            .enquiry-section {
+                padding: 32px 25px;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 520px) {
+
+            .page {
+                width: min(92%, 430px);
+
+                padding:
+                    28px 0 40px;
+            }
+
+            .header {
+                margin-bottom: 35px;
+            }
+
+            .brand-line {
+                gap: 9px;
+            }
+
+            .brand-line span {
+                width: 32px;
+            }
+
+            .brand-line p {
+                font-size: 0.52rem;
+                letter-spacing: 2px;
+            }
+
+            .header h1 {
+                font-size: 2.55rem;
+                letter-spacing: -1.5px;
+            }
+
+            .header .subtitle {
+                font-size: 0.57rem;
+                letter-spacing: 3px;
+            }
+
+            .section-heading h2 {
+                font-size: 0.72rem;
+                letter-spacing: 2px;
+            }
+
+            .contact-card {
+                min-height: 110px;
+                padding: 20px;
+            }
+
+            .address-card {
+                min-height: 135px;
+            }
+
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+
+                margin-bottom: 10px;
+            }
+
+            .contact-value {
+                font-size: 0.68rem;
+            }
+
+            .address-card .contact-value {
+                font-size: 0.7rem;
+            }
+
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .enquiry-section {
+                padding: 28px 18px;
+
+                border-radius: 10px;
+            }
+
+            .enquiry-top {
+                margin-bottom: 25px;
+            }
+
+            .enquiry-top h2 {
+                font-size: 1.45rem;
+            }
+
+            .enquiry-top p {
+                font-size: 0.66rem;
+                line-height: 1.7;
+            }
+
+            .enquiry-form {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .whatsapp-button {
+                grid-column: auto;
+
+                font-size: 0.61rem;
+
+                letter-spacing: 1.3px;
+            }
+
+            .bottom-navigation {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                font-size: 0.49rem;
+                line-height: 1.7;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="page">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="header">
+
+            <div class="brand-line">
+
+                <span></span>
+
+                <p>
+                    Palash GOLDer • Fitness Influencer
+                </p>
+
+                <span></span>
+
+            </div>
+
+
+            <h1>
+                CONTACT
+            </h1>
+
+
+            <div class="subtitle">
+                Connect • Enquire • Collaborate
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             CONTACT INFORMATION
+        ========================== -->
+
+        <section class="contact-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Get In Touch
+                </h2>
+
+                <p>
+                    For enquiries, collaborations and professional opportunities
+                </p>
+
+            </div>
+
+
+            <!-- EMAIL + CONTACT IN ONE ROW -->
+
+            <div class="contact-top">
+
+
+                <!-- EMAIL -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect
+                                x="3"
+                                y="5"
+                                width="18"
+                                height="14"
+                                rx="2"
+                            ></rect>
+
+                            <path
+                                d="m3 7 9 6 9-6"
+                            ></path>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-label">
+                        Email
+                    </div>
+
+
+                    <!-- CHANGE THIS -->
+
+                    <div class="contact-value">
+                        youremail@example.com
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M6.5 3.5 9 3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L16 13l5 2 .5 2.5a2 2 0 0 1-2 2A17.5 17.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2Z"
+                            ></path>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div class="contact-label">
+                        Contact
+                    </div>
+
+
+                    <!-- CHANGE THIS -->
+
+                    <div class="contact-value">
+                        +91 00000 00000
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BIGGER ADDRESS AREA -->
+
+            <div class="contact-card address-card">
+
+                <div class="contact-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                        ></path>
+
+                        <circle
+                            cx="12"
+                            cy="10"
+                            r="2.5"
+                        ></circle>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="contact-label">
+                    Address
+                </div>
+
+
+                <!-- CHANGE THIS -->
+
+                <div class="contact-value">
+
+                    Your Address,<br>
+                    Your City, Your State, India
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOCIAL MEDIA
+        ========================== -->
+
+        <section class="social-section">
+
+            <div class="social-buttons">
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/palash_golder_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button"
+                >
+
+                    <div class="social-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                            ></rect>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                            ></circle>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="0.8"
+                            ></circle>
+
+                        </svg>
+
+                    </div>
+
+
+                    <span class="social-text">
+                        Palash GOLDer — Instagram
+                    </span>
+
+                </a>
+
+
+                <!-- FACEBOOK -->
+
+                <a
+                    href="https://www.facebook.com/share/1CJvub8KMe/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button facebook"
+                >
+
+                    <div class="social-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.4-.1c-2.4 0-4 1.5-4 4.1V10H8v3h2.4v8h3.1Z"
+                            ></path>
+
+                        </svg>
+
+                    </div>
+
+
+                    <span class="social-text">
+                        Palash GOLDer — Facebook
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WHATSAPP ENQUIRY
+        ========================== -->
+
+        <section class="enquiry-section">
+
+
+            <div class="enquiry-top">
+
+                <div class="small-title">
+                    Direct Enquiry
+                </div>
+
+
+                <h2>
+                    Have An <span>Enquiry?</span>
+                </h2>
+
+
+                <p>
+                    Fill in the details below and send your enquiry
+                    directly through WhatsApp. We'll get back to you
+                    as soon as possible.
+                </p>
+
+            </div>
+
+
+            <form
+                class="enquiry-form"
+                id="enquiryForm"
+                onsubmit="return false;"
+            >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        autocomplete="tel"
+                    >
+
+                </div>
+
+
+                <!-- ENQUIRY TYPE -->
+
+                <div class="form-group">
+
+                    <label for="enquiryType">
+                        Enquiry Type
+                    </label>
+
+                    <select id="enquiryType">
+
+                        <option value="">
+                            Select enquiry type
+                        </option>
+
+                        <option value="Personal Training">
+                            Personal Training
+                        </option>
+
+                        <option value="Fitness Consultation">
+                            Fitness Consultation
+                        </option>
+
+                        <option value="Brand Collaboration">
+                            Brand Collaboration
+                        </option>
+
+                        <option value="Event / Appearance">
+                            Event / Appearance
+                        </option>
+
+                        <option value="Social Media Collaboration">
+                            Social Media Collaboration
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="City / Location"
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group full">
+
+                    <label for="message">
+                        Your Enquiry
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your enquiry here..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- WHATSAPP BUTTON -->
+
+                <button
+                    type="button"
+                    class="whatsapp-button"
+                    id="whatsappButton"
+                >
+
+                    <span class="whatsapp-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M20 11.5a8 8 0 0 1-11.9 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"
+                            ></path>
+
+                            <path
+                                d="M8.5 8.5c.2-.5.4-.6.7-.6h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c.8 1.3 1.7 2.2 3 3l.7-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.1.5-.6.7-.5.2-1.2.1-2-.2-2.1-.8-4.8-3.5-5.6-5.6-.3-.8-.4-1.5-.2-2Z"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+
+                    SEND ENQUIRY ON WHATSAPP
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================
+             BOTTOM NAVIGATION
+        ========================== -->
+
+        <div class="bottom-navigation">
+
+            <a
+                href="index.html"
+                class="bottom-button"
+            >
+                ← BACK TO HOME
+            </a>
+
+
+            <a
+                href="consultation.html"
+                class="bottom-button"
+            >
+                CONSULTATION →
+            </a>
+
+        </div>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            © 2026 PALASH GOLDER • TRAIN HARD • STAY CONSISTENT
+
+        </footer>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * ==========================================
+         * WHATSAPP NUMBER
+         * ==========================================
+         *
+         * Replace this with the real WhatsApp number.
+         *
+         * Example:
+         *
+         * 919876543210
+         *
+         * Do NOT use +, spaces or brackets.
+         */
+
+        const whatsappNumber = "910000000000";
+
+
+        const whatsappButton =
+            document.getElementById("whatsappButton");
+
+
+        whatsappButton.addEventListener(
+            "click",
+            function () {
+
+
+                const name =
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+                const phone =
+                    document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+
+                const enquiryType =
+                    document
+                    .getElementById("enquiryType")
+                    .value;
+
+
+                const location =
+                    document
+                    .getElementById("location")
+                    .value
+                    .trim();
+
+
+                const message =
+                    document
+                    .getElementById("message")
+                    .value
+                    .trim();
+
+
+                /*
+                 * Make sure all fields are filled.
+                 */
+
+                if (
+                    !name ||
+                    !phone ||
+                    !enquiryType ||
+                    !location ||
+                    !message
+                ) {
+
+                    alert(
+                        "Please fill in all the enquiry details before sending."
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * WhatsApp message
+                 */
+
+                const whatsappMessage =
+`Hello Palash GOLDer Team,
+
+I would like to make an enquiry.
+
+Name: ${name}
+
+Phone: ${phone}
+
+Enquiry Type: ${enquiryType}
+
+Location: ${location}
+
+My Enquiry:
+${message}
+
+Thank you.`;
+
+
+                /*
+                 * WhatsApp URL
+                 */
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(
+                        whatsappMessage
+                    );
+
+
+                /*
+                 * Open WhatsApp
+                 */
+
+                window.open(
+                    whatsappURL,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
